@@ -1,18 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Hello World!"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
-
-  </androidx.constraintlayout.widget.ConstraintLayout>
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity" android:background="#FFD390">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="57dp"
+            android:layout_height="29dp"
+            android:background="@drawable/menu_roundborders" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            android:id="@+id/barra2" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.141">
+    </LinearLayout>
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="409dp"
+            android:layout_height="101dp"
+            android:background="#F68D2E"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/barraNavegacion"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+            android:layout_width="359dp"
+            android:layout_height="154dp" app:srcCompat="@drawable/logobar" android:id="@+id/logo"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="14dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/barraNavegacion"
+            android:layout_marginStart="67dp" android:layout_marginEnd="67dp"
+            app:layout_constraintVertical_bias="0.513"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="93dp"
+            android:layout_height="41dp"
+            android:background="@drawable/menu_roundborders" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            android:id="@+id/barra1" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.104">
+    </LinearLayout>
+    <Button
+            android:text="Empezar"
+            android:layout_width="164dp"
+            android:layout_height="72dp" android:id="@+id/btnEmpezar"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.497" app:layout_constraintVertical_bias="0.635"
+            android:textSize="25sp" android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF"/>
+    <ImageView
+            android:layout_width="132dp"
+            android:layout_height="70dp" app:srcCompat="@drawable/resta" android:id="@+id/signoResta"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.085"
+            app:layout_constraintVertical_bias="0.272"/>
+    <ImageView
+            android:layout_width="141dp"
+            android:layout_height="121dp" app:srcCompat="@drawable/multiplicacion" android:id="@+id/signoMultiplicacion"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.256" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.903"/>
+    <ImageView
+            android:layout_width="146dp"
+            android:layout_height="141dp" app:srcCompat="@drawable/division" android:id="@+id/signoDivision"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.928" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.093"/>
+    <ImageView
+            android:layout_width="146dp"
+            android:layout_height="139dp" app:srcCompat="@drawable/suma" android:id="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.889"
+            app:layout_constraintVertical_bias="0.924"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -74,7 +74,7 @@
             app:layout_constraintHorizontal_bias="0.093"/>
     <ImageView
             android:layout_width="146dp"
-            android:layout_height="139dp" app:srcCompat="@drawable/suma" android:id="@+id/imageView4"
+            android:layout_height="139dp" app:srcCompat="@drawable/suma" android:id="@+id/signoSuma"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.889"

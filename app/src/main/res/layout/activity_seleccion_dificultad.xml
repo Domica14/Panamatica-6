@@ -5,6 +5,47 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SeleccionDificultad">
+        tools:context=".SeleccionDificultad" android:background="#FFD390">
 
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="413dp"
+            android:layout_height="80dp"
+            android:background="@drawable/blue_stroke"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/barraNavegacion2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.0"/>
+    <TextView
+            android:text="Seleccione la dificultad"
+            android:layout_width="269dp"
+            android:layout_height="110dp" android:id="@+id/txtTitulo"
+            android:textAlignment="center" android:textSize="38sp"
+            android:textStyle="bold|italic" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.122" android:fontFamily="@font/inter_black"
+            android:textColor="#000000"/>
+    <ImageView
+            android:layout_width="225dp"
+            android:layout_height="220dp" app:srcCompat="@drawable/modofacil" android:id="@+id/opcionFacil"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.359"
+            app:layout_constraintHorizontal_bias="0.494"/>
+    <ImageView
+            android:layout_width="216dp"
+            android:layout_height="220dp" app:srcCompat="@drawable/mododificil" android:id="@+id/opcionDificil"
+            app:layout_constraintTop_toBottomOf="@+id/opcionFacil"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.187" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"/>
+    <Button
+            android:text="Menú Principal"
+            android:layout_width="207dp"
+            android:layout_height="62dp" android:id="@+id/btnMenu"
+            android:backgroundTint="#F68D2E"
+            android:fontFamily="@font/inter_black" android:textSize="20sp" android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/opcionDificil" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

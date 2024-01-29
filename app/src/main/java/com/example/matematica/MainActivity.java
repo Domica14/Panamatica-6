@@ -19,18 +19,20 @@ public class MainActivity extends AppCompatActivity {
         //Asociacion de la variable declarada con el elemento de la vista
         btnEmpezar = findViewById(R.id.btnEmpezar);
 
+        //Listener para determinar la accion a realizar al presionar el boton
         btnEmpezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fade(btnEmpezar);
+                fade();           //Llamado al metodo de la transicion
             }
         });
     }
 
     //Metodo que se encarga de la transicion entre activities
-    public void fade(View button){
+    public void fade(){
         //Metodo para realizar el cambio de activity
         startActivity(new Intent(MainActivity.this, SeleccionDificultad.class));
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);         //Metodo para cambiar la transicion
+        finish();       //Se finaliza la activity actual
     }
 }

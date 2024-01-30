@@ -13,6 +13,18 @@
             android:theme="@style/Theme.Matematica"
             tools:targetApi="31">
         <activity
+                android:name=".RestaEZ"
+                android:exported="false"/>
+        <activity
+                android:name=".Resta"
+                android:exported="false"/>
+        <activity
+                android:name=".SumaEZ"
+                android:exported="false"/>
+        <activity
+                android:name=".Suma"
+                android:exported="false"/>
+        <activity
                 android:name=".Lecciones"
                 android:exported="false"/>
         <activity

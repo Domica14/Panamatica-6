@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center"
+              android:padding="16dp"
+              tools:context=".Resta">
+
+    <TextView
+            android:id="@+id/txtPregunta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text=""
+            android:layout_marginBottom="20dp"/>
+
+    <EditText
+            android:id="@+id/Respuesta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Ingresa tu respuesta"
+            android:textAlignment="center"
+            android:inputType="numberSigned"
+            android:layout_marginBottom="20dp"/>
+
+    <Button
+            android:id="@+id/btnVerificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verificar" />
+
+    <View
+            android:id="@+id/view"
+            android:layout_width="185dp"
+            android:layout_height="28dp" />
+
+    <TextView
+            android:id="@+id/txtResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="" />
+
+</LinearLayout>

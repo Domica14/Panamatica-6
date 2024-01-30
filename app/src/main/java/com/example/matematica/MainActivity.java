@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btnEmpezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 fade();           //Llamado al metodo de la transicion
             }
         });

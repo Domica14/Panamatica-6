@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import java.util.Random;
 
-public class Resta extends AppCompatActivity {
+public class Mult extends AppCompatActivity {
 
     TextView txtPregunta, txtResultado, Respuesta;
     Button btnVerificar;
@@ -15,7 +15,7 @@ public class Resta extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resta);
+        setContentView(R.layout.activity_mult);
 
         txtPregunta = findViewById(R.id.txtPregunta);
         txtResultado = findViewById(R.id.txtResultado);
@@ -32,14 +32,14 @@ public class Resta extends AppCompatActivity {
         });
     }
 
-    //Generacion de numeros aleatorios para los problemas
+    //Numeros aleatorios del 1 al 12 (Podría Variar)
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(100);
-        int numero2 = random.nextInt(100);
-        respuestaCorrecta = numero1 - numero2;
+        int numero1 = random.nextInt(12) + 1;
+        int numero2 = random.nextInt(12) + 1;
+        respuestaCorrecta = numero1 * numero2;
 
-        txtPregunta.setText(numero1 + " - " + numero2 + " = ?");
+        txtPregunta.setText(numero1 + " x " + numero2 + " = ?");
     }
 
     private void verificarRespuesta() {

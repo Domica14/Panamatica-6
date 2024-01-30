@@ -13,6 +13,18 @@
             android:theme="@style/Theme.Matematica"
             tools:targetApi="31">
         <activity
+                android:name=".DivEZ"
+                android:exported="false"/>
+        <activity
+                android:name=".Div"
+                android:exported="false"/>
+        <activity
+                android:name=".MultEZ"
+                android:exported="false"/>
+        <activity
+                android:name=".Mult"
+                android:exported="false"/>
+        <activity
                 android:name=".RestaEZ"
                 android:exported="false"/>
         <activity

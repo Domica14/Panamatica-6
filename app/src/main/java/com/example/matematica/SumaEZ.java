@@ -9,9 +9,9 @@ import java.util.Random;
 
 public class SumaEZ extends AppCompatActivity {
 
-    private TextView txtPregunta, txtResultado;
-    private Button[] btnOpciones;
-    private int respuestaCorrecta;
+    TextView txtPregunta, txtResultado;
+    Button[] btnOpciones;
+    int respuestaCorrecta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

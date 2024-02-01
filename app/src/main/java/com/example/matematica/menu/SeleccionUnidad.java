@@ -47,6 +47,7 @@ public class SeleccionUnidad extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         startActivity(new Intent(SeleccionUnidad.this, MainActivity.class));
+        fade();
         finish();
     }
 

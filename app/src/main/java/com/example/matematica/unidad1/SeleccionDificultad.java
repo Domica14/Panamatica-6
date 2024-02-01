@@ -23,8 +23,8 @@ public class SeleccionDificultad extends AppCompatActivity {
         setContentView(R.layout.activity_seleccion_dificultad);
 
         //Asociacion de variables con los elementos del acttivity
-        opcionFacil = findViewById(R.id.opcionFacil);
-        opcionDificil = findViewById(R.id.opcionDificil);
+        opcionFacil = findViewById(R.id.opcionPrincipiante);
+        opcionDificil = findViewById(R.id.opcionAvanzado);
         btnMenuPrincipal = findViewById(R.id.btnMenu);
 
         //Listener para realizar accion al presionar el boton de menu
@@ -66,6 +66,7 @@ public class SeleccionDificultad extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         startActivity(new Intent(SeleccionDificultad.this, SeleccionUnidad.class));
+        fade();
         finish();
     }
 

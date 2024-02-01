@@ -6,7 +6,7 @@
               android:orientation="vertical"
               android:gravity="center"
               android:padding="16dp"
-              tools:context=".Mult">
+              tools:context=".unidad1.Mult">
 
     <TextView
             android:id="@+id/txtPregunta"

@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".MultEZ">
+                tools:context=".unidad1.MultEZ">
 
     <TextView
             android:id="@+id/txtPregunta"

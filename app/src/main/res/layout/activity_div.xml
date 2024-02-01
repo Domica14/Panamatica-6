@@ -6,7 +6,7 @@
               android:orientation="vertical"
               android:gravity="center"
               android:padding="16dp"
-              tools:context=".Div">
+              tools:context=".unidad1.Div">
 
     <TextView
             android:id="@+id/txtPregunta"

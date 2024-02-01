@@ -1,13 +1,14 @@
-package com.example.matematica;
-
+package com.example.matematica.unidad1;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.example.matematica.R;
+
 import java.util.Random;
 
-public class Suma extends AppCompatActivity {
+public class Resta extends AppCompatActivity {
 
     TextView txtPregunta, txtResultado, Respuesta;
     Button btnVerificar;
@@ -16,7 +17,7 @@ public class Suma extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suma);
+        setContentView(R.layout.activity_resta);
 
         txtPregunta = findViewById(R.id.txtPregunta);
         txtResultado = findViewById(R.id.txtResultado);
@@ -38,9 +39,9 @@ public class Suma extends AppCompatActivity {
         Random random = new Random();
         int numero1 = random.nextInt(100);
         int numero2 = random.nextInt(100);
-        respuestaCorrecta = numero1 + numero2;
+        respuestaCorrecta = numero1 - numero2;
 
-        txtPregunta.setText(numero1 + " + " + numero2 + " = ?");
+        txtPregunta.setText(numero1 + " - " + numero2 + " = ?");
     }
 
     private void verificarRespuesta() {

@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Lecciones" android:background="#FFD390">
+        tools:context=".unidad1.Lecciones" android:background="#FFD390">
     <TextView
             android:text="Seleccione una lección"
             android:layout_width="269dp"

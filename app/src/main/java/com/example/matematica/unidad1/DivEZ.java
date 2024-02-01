@@ -1,23 +1,24 @@
-package com.example.matematica;
-
+package com.example.matematica.unidad1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.example.matematica.R;
+
 import java.util.Random;
 
-public class RestaEZ extends AppCompatActivity {
+public class DivEZ extends AppCompatActivity {
 
     TextView txtPregunta, txtResultado;
     Button[] btnOpciones;
-    int respuestaCorrecta;
+    double respuestaCorrecta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resta_ez);
+        setContentView(R.layout.activity_div_ez);
 
         txtPregunta = findViewById(R.id.txtPregunta);
         txtResultado = findViewById(R.id.txtResultado);
@@ -40,40 +41,45 @@ public class RestaEZ extends AppCompatActivity {
         }
     }
 
+    //Dividendo y Divisor con limite de 12, de manera aleatoria
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(100); // Número aleatorio entre 0 y 99
-        int numero2 = random.nextInt(100); // Número aleatorio entre 0 y 99
-        respuestaCorrecta = numero1 - numero2;
+        int numero1 = random.nextInt(12) + 1;
+        int numero2 = random.nextInt(12) + 1;
+        respuestaCorrecta = (double) numero1 / numero2;
 
-        txtPregunta.setText(numero1 + " - " + numero2 + " = ?");
+        txtPregunta.setText(numero1 + " / " + numero2 + " = ?");
 
         // Colocar la respuesta correcta en uno de los botones
         int botonRespuestaCorrecta = random.nextInt(4); // Número aleatorio entre 0 y 3
-        btnOpciones[botonRespuestaCorrecta].setText(String.valueOf(respuestaCorrecta));
+        btnOpciones[botonRespuestaCorrecta].setText(String.format("%.1f", respuestaCorrecta));
 
         // Colocar respuestas incorrectas en los otros botones
         for (int i = 0; i < 4; i++) {
             if (i != botonRespuestaCorrecta) {
-                int respuestaIncorrecta = generarRespuestaIncorrecta();
-                btnOpciones[i].setText(String.valueOf(respuestaIncorrecta));
+                double respuestaIncorrecta;
+                do {
+                    respuestaIncorrecta = generarRespuestaIncorrecta();
+                } while (respuestaIncorrecta == respuestaCorrecta);
+                btnOpciones[i].setText(String.format("%.1f", respuestaIncorrecta));
             }
         }
     }
 
-    private int generarRespuestaIncorrecta() {
+    private double generarRespuestaIncorrecta() {
         Random random = new Random();
-        int respuestaIncorrecta;
+        double respuestaIncorrecta;
+        int divisorMaximo = 12;
         do {
-            int rango = 20; // Rango de números para respuestas incorrectas
-            respuestaIncorrecta = respuestaCorrecta + random.nextInt(rango) - rango / 2;
+            int divisor = random.nextInt(divisorMaximo) + 1;
+            respuestaIncorrecta = (double) (random.nextInt(12) + 1) / divisor;
         } while (respuestaIncorrecta == respuestaCorrecta);
         return respuestaIncorrecta;
     }
 
     private void verificarRespuesta(Button opcionSeleccionada) {
-        int respuestaUsuario = Integer.parseInt(opcionSeleccionada.getText().toString());
-        if (respuestaUsuario == respuestaCorrecta) {
+        double respuestaUsuario = Double.parseDouble(opcionSeleccionada.getText().toString());
+        if (Math.abs(respuestaUsuario - respuestaCorrecta) < 0.001) {
             txtResultado.setText("¡Correcto!");
         } else {
             txtResultado.setText("Incorrecto. La respuesta correcta es " + respuestaCorrecta);

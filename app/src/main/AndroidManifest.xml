@@ -13,40 +13,43 @@
             android:theme="@style/Theme.Matematica"
             tools:targetApi="31">
         <activity
-                android:name=".DivEZ"
+                android:name=".menu.SeleccionUnidad"
                 android:exported="false"/>
         <activity
-                android:name=".Div"
+                android:name=".unidad1.DivEZ"
                 android:exported="false"/>
         <activity
-                android:name=".MultEZ"
+                android:name=".unidad1.Div"
                 android:exported="false"/>
         <activity
-                android:name=".Mult"
+                android:name=".unidad1.MultEZ"
                 android:exported="false"/>
         <activity
-                android:name=".RestaEZ"
+                android:name=".unidad1.Mult"
                 android:exported="false"/>
         <activity
-                android:name=".Resta"
+                android:name=".unidad1.RestaEZ"
                 android:exported="false"/>
         <activity
-                android:name=".SumaEZ"
+                android:name=".unidad1.Resta"
                 android:exported="false"/>
         <activity
-                android:name=".Suma"
+                android:name=".unidad1.SumaEZ"
                 android:exported="false"/>
         <activity
-                android:name=".Lecciones"
+                android:name=".unidad1.Suma"
+                android:exported="false"/>
+        <activity
+                android:name=".unidad1.Lecciones"
                 android:exported="false"/>
         <activity
                 android:name=".Mensaje"
                 android:exported="false"/>
         <activity
-                android:name=".SeleccionDificultad"
+                android:name=".unidad1.SeleccionDificultad"
                 android:exported="false"/>
         <activity
-                android:name=".MainActivity"
+                android:name=".menu.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

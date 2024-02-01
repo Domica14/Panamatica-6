@@ -1,4 +1,4 @@
-package com.example.matematica;
+package com.example.matematica.unidad1;
 
 import android.content.Intent;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.matematica.R;
+import com.example.matematica.menu.MainActivity;
+import com.example.matematica.menu.SeleccionUnidad;
 
 public class SeleccionDificultad extends AppCompatActivity {
 
@@ -55,6 +58,15 @@ public class SeleccionDificultad extends AppCompatActivity {
                 fade();
             }
         });
+    }
+
+    /*Se sobrescribe el metodo de onBackPressed para que realize el retroceso a la activity anterior al presionar
+      el boton de atras del celular
+     */
+    @Override
+    public void onBackPressed(){
+        startActivity(new Intent(SeleccionDificultad.this, SeleccionUnidad.class));
+        finish();
     }
 
     //Metodo que se encarga de la transicion entre activities

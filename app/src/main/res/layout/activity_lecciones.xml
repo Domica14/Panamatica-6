@@ -9,23 +9,26 @@
     <TextView
             android:text="Seleccione una lección"
             android:layout_width="269dp"
-            android:layout_height="110dp" android:id="@+id/txtTitulo"
+            android:layout_height="0dp" android:id="@+id/txtTitulo"
             android:textAlignment="center" android:textSize="38sp"
             android:textStyle="bold|italic" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.061" android:fontFamily="@font/inter_black"
-            android:textColor="#000000"/>
+            android:textColor="#000000" android:layout_marginTop="38dp" android:layout_marginBottom="65dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:srcCompat="@drawable/sumaresta" android:id="@+id/imageView"
-            tools:layout_editor_absoluteY="213dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
+            android:layout_marginBottom="38dp" app:layout_constraintBottom_toTopOf="@+id/imageView2"/>
     <ImageView
             android:layout_width="211dp"
-            android:layout_height="121dp" app:srcCompat="@drawable/multdiv" android:id="@+id/imageView2"
-            tools:layout_editor_absoluteY="376dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_height="0dp" app:srcCompat="@drawable/multdiv" android:id="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" android:layout_marginBottom="234dp"/>
     <Button
             android:text="Atrás"
             android:layout_width="164dp"

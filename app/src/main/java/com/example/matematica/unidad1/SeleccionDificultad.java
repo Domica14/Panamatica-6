@@ -54,7 +54,7 @@ public class SeleccionDificultad extends AppCompatActivity {
                 //Asignacion de dificultad a variable de modo
                 modo = "Dificil";
                 //Metodo para realizar el cambio de activity
-                startActivity(new Intent(SeleccionDificultad.this, Lecciones.class));
+                startActivity(new Intent(SeleccionDificultad.this, LeccionesAdv.class));
                 fade();
             }
         });

@@ -10,35 +10,35 @@ import com.example.matematica.R;
 import com.example.matematica.menu.MainActivity;
 import com.example.matematica.menu.SeleccionUnidad;
 
-public class Lecciones extends AppCompatActivity {
+public class LeccionesAdv extends AppCompatActivity {
 
-    private ImageView leccion1, leccion2;
+    private ImageView leccionAdv1, leccionAdv2;
     private Button Atras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lecciones);
+        setContentView(R.layout.activity_lecciones_adv);
 
-        leccion1 = findViewById(R.id.imageView);
-        leccion2 = findViewById(R.id.imageView2);
+        leccionAdv1 = findViewById(R.id.imageView);
+        leccionAdv2 = findViewById(R.id.imageView2);
         Atras = findViewById(R.id.Atras);
 
 
         Atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Lecciones.this, SeleccionDificultad.class));
+                startActivity(new Intent(LeccionesAdv.this, SeleccionDificultad.class));
                 fade();
             }
         });
 
         /*Una vez se toque la lección 1, la acción mandará al material que contiene dicha lección
          esto en modo facil*/
-        leccion1.setOnClickListener(new View.OnClickListener() {
+        leccionAdv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Lecciones.this, SumaEZ.class));
+                startActivity(new Intent(LeccionesAdv.this, Suma.class));
                 fade();
             }
         });
@@ -46,10 +46,10 @@ public class Lecciones extends AppCompatActivity {
 
         /*Una vez se toque la lección 2, la acción mandará al material que contiene dicha lección
          esto en modo facil*/
-        leccion2.setOnClickListener(new View.OnClickListener() {
+        leccionAdv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Lecciones.this, MultEZ.class));
+                startActivity(new Intent(LeccionesAdv.this, Mult.class));
                 fade();
             }
         });
@@ -61,7 +61,7 @@ public class Lecciones extends AppCompatActivity {
       el boton de atras del celular
      */
     public void onBackPressed(){
-        startActivity(new Intent(Lecciones.this, SeleccionDificultad.class));
+        startActivity(new Intent(LeccionesAdv.this, SeleccionDificultad.class));
         fade();
         finish();
     }

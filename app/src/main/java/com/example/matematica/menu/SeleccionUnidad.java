@@ -7,12 +7,15 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
+import com.example.matematica.juegos.JuegoX0;
 import com.example.matematica.unidad1.SeleccionDificultad;
 
 public class SeleccionUnidad extends AppCompatActivity {
     //Declaracion de variables para manejar los elementos de la vista
     private ImageView unidad1;              //A futuro se pueden agregar las del resto de unidades
     private Button btnAtras;
+    //Provicional para acceder a los juegos
+    private ImageView unidad2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +25,22 @@ public class SeleccionUnidad extends AppCompatActivity {
         //Asociacion de variables con los elementos de la vista
         unidad1 = findViewById(R.id.unidad1);
         btnAtras = findViewById(R.id.btnRegresar);
+        unidad2 = findViewById(R.id.unidad2);           //Provisional para juego
 
         //Listeners para que se realize una accion al presionar la imagen
         unidad1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SeleccionUnidad.this, SeleccionDificultad.class));
+                fade();
+            }
+        });
+
+        //Provisional para juego
+        unidad2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SeleccionUnidad.this, JuegoX0.class));
                 fade();
             }
         });

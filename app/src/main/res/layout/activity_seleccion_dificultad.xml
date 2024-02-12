@@ -8,7 +8,7 @@
         tools:context=".unidad1.SeleccionDificultad" android:background="#FFD390">
 
     <androidx.appcompat.widget.Toolbar
-            android:layout_width="413dp"
+            android:layout_width="409dp"
             android:layout_height="80dp"
             android:background="@drawable/blue_stroke"
             android:theme="?attr/actionBarTheme"
@@ -28,7 +28,8 @@
             android:textColor="#000000"/>
     <ImageView
             android:layout_width="225dp"
-            android:layout_height="220dp" app:srcCompat="@drawable/modoprincipiante" android:id="@+id/opcionPrincipiante"
+            android:layout_height="220dp" app:srcCompat="@drawable/modoprincipiante"
+            android:id="@+id/opcionPrincipiante"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.359"

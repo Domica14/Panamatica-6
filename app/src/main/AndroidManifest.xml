@@ -13,6 +13,9 @@
             android:theme="@style/Theme.Matematica"
             tools:targetApi="31">
         <activity
+                android:name=".juegos.JuegoX0"
+                android:exported="false"/>
+        <activity
                 android:name=".unidad1.LeccionesAdv"
                 android:exported="false"/>
         <activity

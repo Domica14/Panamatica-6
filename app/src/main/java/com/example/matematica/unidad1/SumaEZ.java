@@ -1,5 +1,8 @@
 package com.example.matematica.unidad1;
 
+import android.content.Intent;
+import android.view.Gravity;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +16,7 @@ public class SumaEZ extends AppCompatActivity {
 
     TextView txtPregunta, txtResultado;
     Button[] btnOpciones;
-    int respuestaCorrecta;
+    int respuestaCorrecta, Count = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +30,13 @@ public class SumaEZ extends AppCompatActivity {
                 findViewById(R.id.btnOpcion2),
                 findViewById(R.id.btnOpcion3),
                 findViewById(R.id.btnOpcion4)
+
+
         };
 
-        generarOperacion();
+            generarOperacion();
+
+        txtResultado.setText("Intento: " + Count);
 
         for (Button btn : btnOpciones) {
             btn.setOnClickListener(new View.OnClickListener() {
@@ -75,10 +82,42 @@ public class SumaEZ extends AppCompatActivity {
 
     private void verificarRespuesta(Button opcionSeleccionada) {
         int respuestaUsuario = Integer.parseInt(opcionSeleccionada.getText().toString());
+
+            Count = Count + 1;
+
+
         if (respuestaUsuario == respuestaCorrecta) {
-            txtResultado.setText("¡Correcto!");
+            mostrarToast("¡Correcto!");
         } else {
-            txtResultado.setText("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
+            mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
         }
+
+        txtResultado.setText("Intento: " + Count);
+
+        if(Count <= 5) {
+
+            generarOperacion(); // Generar una nueva operación después de verificar la respuesta
+
+        }else{
+
+            startActivity(new Intent(SumaEZ.this, RestaEZ.class));
+            fade();
+
+        }
+
     }
+
+
+    private void mostrarToast(String mensaje) {
+        Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 100); // Ajusta la posición del Toast
+        toast.show();
+    }
+
+    public void fade(){
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);         //Metodo para cambiar la transicion
+        finish();       //Se finaliza la activity actual
+    }
+
+
 }

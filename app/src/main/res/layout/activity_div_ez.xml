@@ -31,7 +31,7 @@
             <View
                     android:id="@+id/view2"
                     android:layout_width="230dp"
-                    android:layout_height="114dp" />
+                    android:layout_height="114dp"/>
 
             <Button
                     android:id="@+id/btnOpcion1"
@@ -52,7 +52,7 @@
             <View
                     android:id="@+id/view4"
                     android:layout_width="match_parent"
-                    android:layout_height="59dp" />
+                    android:layout_height="59dp"/>
 
         </LinearLayout>
 
@@ -66,7 +66,7 @@
             <View
                     android:id="@+id/view3"
                     android:layout_width="230dp"
-                    android:layout_height="114dp" />
+                    android:layout_height="114dp"/>
 
             <Button
                     android:id="@+id/btnOpcion3"
@@ -87,7 +87,7 @@
             <View
                     android:id="@+id/view5"
                     android:layout_width="match_parent"
-                    android:layout_height="59dp" />
+                    android:layout_height="59dp"/>
 
         </LinearLayout>
     </LinearLayout>

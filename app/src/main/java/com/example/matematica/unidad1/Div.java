@@ -1,4 +1,5 @@
 package com.example.matematica.unidad1;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +35,7 @@ public class Div extends AppCompatActivity {
         });
     }
 
-    //Dividendo y Divisor con limite de 12, de manera aleatoria
+    // Dividendo y Divisor con límite de 12, de manera aleatoria
     private void generarOperacion() {
         Random random = new Random();
         int numero1 = random.nextInt(12) + 1;
@@ -48,11 +49,14 @@ public class Div extends AppCompatActivity {
         String respuestaStr = Respuesta.getText().toString().trim();
         if (!respuestaStr.isEmpty()) {
             double respuestaUsuario = Double.parseDouble(respuestaStr);
-            if (Math.abs(respuestaUsuario - respuestaCorrecta) < 0.001) {
+            respuestaUsuario = Math.round(respuestaUsuario * 10.0) / 10.0; // Redondear a 1 decimal
+            respuestaCorrecta = Math.round(respuestaCorrecta * 10.0) / 10.0; // Redondear a 1 decimal
+            if (respuestaUsuario == respuestaCorrecta) {
                 txtResultado.setText("¡Correcto!");
             } else {
                 txtResultado.setText("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
             }
         }
     }
+
 }

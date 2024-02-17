@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
 import com.example.matematica.juegos.JuegoX0;
+import com.example.matematica.unidad1.Div;
+import com.example.matematica.unidad1.DivEZ;
 import com.example.matematica.unidad1.SeleccionDificultad;
 
 public class SeleccionUnidad extends AppCompatActivity {
@@ -15,7 +17,7 @@ public class SeleccionUnidad extends AppCompatActivity {
     private ImageView unidad1;              //A futuro se pueden agregar las del resto de unidades
     private Button btnAtras;
     //Provicional para acceder a los juegos
-    private ImageView unidad2;
+    private ImageView unidad2, unidad3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class SeleccionUnidad extends AppCompatActivity {
         unidad1 = findViewById(R.id.unidad1);
         btnAtras = findViewById(R.id.btnRegresar);
         unidad2 = findViewById(R.id.unidad2);           //Provisional para juego
+        unidad3 = findViewById(R.id.unidad3);           //Provisional para experimentar problemas
+
 
         //Listeners para que se realize una accion al presionar la imagen
         unidad1.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +45,14 @@ public class SeleccionUnidad extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SeleccionUnidad.this, JuegoX0.class));
+                fade();
+            }
+        });
+
+        unidad3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SeleccionUnidad.this, Div.class));
                 fade();
             }
         });

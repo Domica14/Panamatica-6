@@ -104,7 +104,7 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
             //Para evitar mas turnos de los posibles se establece el limite
             if (usuarioOpciones.size() == 5){
                 txtResultado.setText("Empate :/");
-            } else {            //En caso de no haber llegado al maximo se ejecuta todo normalmente
+            } else {            //En caso de no haber llegado al maximo se ejecuta normal
                 turnoContrincante();
             }
         }

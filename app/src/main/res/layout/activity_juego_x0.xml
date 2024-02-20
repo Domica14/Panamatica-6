@@ -17,23 +17,15 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.0"/>
     <TextView
-            android:text="Puntaje"
-            android:layout_width="213dp"
-            android:layout_height="71dp" android:id="@+id/txtPuntaje"
+            android:text="Tic-Tac-Toe"
+            android:layout_width="307dp"
+            android:layout_height="103dp" android:id="@+id/txtPuntaje"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:textColor="#000000"
             android:fontFamily="@font/inter_black" android:textStyle="italic" android:textAlignment="center"
-            android:textSize="48sp" app:layout_constraintVertical_bias="0.116"/>
-    <TextView
-            android:text="0 - 0"
-            android:layout_width="99dp"
-            android:layout_height="52dp" android:id="@+id/txtPuntuacion"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:textSize="34sp" android:textColor="#000000"
-            android:textAlignment="center" android:textStyle="italic" android:fontFamily="@font/inter_black"
-            app:layout_constraintVertical_bias="0.197"/>
+            android:textSize="48sp" app:layout_constraintVertical_bias="0.156"
+    />
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:srcCompat="@drawable/tablerotresenraya"

@@ -52,7 +52,7 @@ public class SeleccionUnidad extends AppCompatActivity {
         unidad3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SeleccionUnidad.this, Div.class));
+                startActivity(new Intent(SeleccionUnidad.this, DivEZ.class));
                 fade();
             }
         });

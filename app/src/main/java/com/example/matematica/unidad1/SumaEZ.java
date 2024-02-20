@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.matematica.R;
-import com.example.matematica.menu.MainActivity;
 import com.example.matematica.menu.SeleccionUnidad;
 
 import java.util.Random;

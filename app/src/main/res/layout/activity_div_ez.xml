@@ -31,7 +31,7 @@
             <View
                     android:id="@+id/view2"
                     android:layout_width="230dp"
-                    android:layout_height="114dp"/>
+                    android:layout_height="114dp" />
 
             <Button
                     android:id="@+id/btnOpcion1"
@@ -52,7 +52,7 @@
             <View
                     android:id="@+id/view4"
                     android:layout_width="match_parent"
-                    android:layout_height="59dp"/>
+                    android:layout_height="59dp" />
 
         </LinearLayout>
 
@@ -66,7 +66,7 @@
             <View
                     android:id="@+id/view3"
                     android:layout_width="230dp"
-                    android:layout_height="114dp"/>
+                    android:layout_height="114dp" />
 
             <Button
                     android:id="@+id/btnOpcion3"
@@ -87,7 +87,7 @@
             <View
                     android:id="@+id/view5"
                     android:layout_width="match_parent"
-                    android:layout_height="59dp"/>
+                    android:layout_height="59dp" />
 
         </LinearLayout>
     </LinearLayout>
@@ -98,5 +98,46 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"/>
+
+    <Button
+            android:id="@+id/btnFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Repetir"
+            android:layout_marginBottom="18dp"
+            android:visibility="invisible" android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+    />
+
+    <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:text="Volver"
+            android:layout_marginBottom="18dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="invisible"/>
+
+    <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Continuar"
+            android:layout_marginBottom="20dp"
+            android:visibility="invisible"
+    />
+
+    <TextView
+            android:id="@+id/txtResultadoFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:visibility="invisible" android:layout_centerInParent="true"/>
 
 </RelativeLayout>

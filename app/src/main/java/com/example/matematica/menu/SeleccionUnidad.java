@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
+import com.example.matematica.juegos.JuegoAdivinanzas;
 import com.example.matematica.juegos.JuegoX0;
 import com.example.matematica.unidad1.Div;
 import com.example.matematica.unidad1.DivEZ;
@@ -52,7 +53,7 @@ public class SeleccionUnidad extends AppCompatActivity {
         unidad3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SeleccionUnidad.this, DivEZ.class));
+                startActivity(new Intent(SeleccionUnidad.this, JuegoAdivinanzas.class));
                 fade();
             }
         });

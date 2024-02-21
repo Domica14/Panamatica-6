@@ -5,6 +5,75 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".juegos.JuegoAdivinanzas">
+        tools:context=".juegos.JuegoAdivinanzas" android:background="#FFD390">
 
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_stroke"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+    <TextView
+            android:text="Adivina la adivinanza"
+            android:layout_width="305dp"
+            android:layout_height="134dp" android:id="@+id/txtJuegoAdivina"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:textColor="#000000"
+            android:fontFamily="@font/inter_black" android:textStyle="italic" android:textAlignment="center"
+            android:textSize="48sp" app:layout_constraintVertical_bias="0.139"
+    />
+    <TextView
+            android:layout_width="300dp"
+            android:layout_height="142dp" android:id="@+id/txtAdivinanza"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:textColor="#000000"
+            android:fontFamily="@font/inter_black" android:textStyle="italic" android:textAlignment="center"
+            android:textSize="30sp" app:layout_constraintVertical_bias="0.373"
+            app:layout_constraintHorizontal_bias="0.495"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:textColor="#000000"
+            android:fontFamily="@font/inter_black" android:textAlignment="center"
+            android:inputType="text"
+            android:ems="10"
+            android:textSize="24sp"
+            android:id="@+id/etxtRespuesta" app:layout_constraintVertical_bias="0.529"/>
+    <Button
+            android:text="Salir"
+            android:layout_width="130dp"
+            android:layout_height="59dp" android:id="@+id/btnSalirAdi"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.946"
+            android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
+            android:textAlignment="center" android:textSize="20sp" android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:layout_width="300dp"
+            android:layout_height="142dp" android:id="@+id/txtResultadoAdi"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:textColor="#000000"
+            android:fontFamily="@font/inter_black" android:textStyle="italic" android:textAlignment="center"
+            android:textSize="30sp" app:layout_constraintVertical_bias="0.826"
+            app:layout_constraintHorizontal_bias="0.495"/>
+    <Button
+            android:text="Adivinar"
+            android:layout_width="140dp"
+            android:layout_height="59dp" android:id="@+id/btnAdivinar"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.641"
+            android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
+            android:textAlignment="center" android:textSize="20sp" android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

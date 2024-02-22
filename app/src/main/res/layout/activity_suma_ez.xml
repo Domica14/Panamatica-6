@@ -66,8 +66,7 @@
             <View
                     android:id="@+id/view3"
                     android:layout_width="230dp"
-                    android:layout_height="114dp" />
-
+                    android:layout_height="114dp"/>
             <Button
                     android:id="@+id/btnOpcion3"
                     android:layout_width="wrap_content"

@@ -26,7 +26,7 @@ public class JuegoAdivinanzas extends AppCompatActivity {
 
     //Se declara un HashMap para manejar las adivinanzas
 
-    //--------------------------------------ADIVINANZAS----------------------------------------------
+    //--------------------------------------ADIVINANZAS------------------------------------------------------------------------------
     HashMap<String, String> adivinanzas = new HashMap<String, String>(){{
         put("Pez", "¿Que es algo y nada a la vez?");
         put("Agujero","¿Qué cosa es que cuanto más le quitas más grande es?");
@@ -43,7 +43,7 @@ public class JuegoAdivinanzas extends AppCompatActivity {
 
     }};
 
-    //-----------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------
 
     //Se define un array que contendra todas las llaves
     private String[] cantidadAdivinanzas = adivinanzas.keySet().toArray(new String[0]);

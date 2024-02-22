@@ -99,8 +99,8 @@ public class DivEZ extends AppCompatActivity {
     // Dividendo y Divisor con límite de 12, de manera aleatoria
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(12);
-        int numero2 = random.nextInt(12);
+        int numero1 = random.nextInt(12) + 1;
+        int numero2 = random.nextInt(12) + 1;
         respuestaCorrecta = (double) numero1 / numero2;
         respuestaCorrecta = Math.round(respuestaCorrecta * 10.0) / 10.0;
 

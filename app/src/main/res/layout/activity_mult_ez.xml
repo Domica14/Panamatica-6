@@ -3,7 +3,15 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".unidad1.MultEZ">
+                tools:context=".unidad1.MultEZ" android:background="@drawable/fondomath">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="409dp"
+            android:layout_height="61dp"
+            android:background="@drawable/blue_stroke"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/barraNavegacion3"
+    />
 
     <TextView
             android:id="@+id/txtPregunta"
@@ -11,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="90dp"
             android:text=""/>
 
     <LinearLayout
@@ -23,7 +31,7 @@
 
         <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:gravity="center">
@@ -31,7 +39,7 @@
             <View
                     android:id="@+id/view2"
                     android:layout_width="230dp"
-                    android:layout_height="114dp" />
+                    android:layout_height="142dp"/>
 
             <Button
                     android:id="@+id/btnOpcion1"
@@ -39,7 +47,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"/>
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+                    android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
 
             <Button
                     android:id="@+id/btnOpcion2"
@@ -47,12 +57,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"/>
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+                    android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
 
             <View
                     android:id="@+id/view4"
                     android:layout_width="match_parent"
-                    android:layout_height="59dp" />
+                    android:layout_height="59dp"/>
 
         </LinearLayout>
 
@@ -66,15 +78,16 @@
             <View
                     android:id="@+id/view3"
                     android:layout_width="230dp"
-                    android:layout_height="114dp" />
-
+                    android:layout_height="142dp"/>
             <Button
                     android:id="@+id/btnOpcion3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"/>
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+                    android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
 
             <Button
                     android:id="@+id/btnOpcion4"
@@ -82,7 +95,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"/>
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+                    android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
 
             <View
                     android:id="@+id/view5"
@@ -97,7 +112,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
+    />
 
     <Button
             android:id="@+id/btnFinal"
@@ -108,7 +125,8 @@
             android:layout_marginBottom="18dp"
             android:visibility="invisible" android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
-    />
+            android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
 
     <Button
             android:id="@+id/btnVolver"
@@ -119,7 +137,9 @@
             android:text="Volver"
             android:layout_marginBottom="18dp"
             android:layout_marginEnd="20dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
 
     <Button
             android:id="@+id/btnNext"
@@ -128,10 +148,10 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="Continuar"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="177dp"
             android:visibility="invisible"
-    />
-
+            android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
     <TextView
             android:id="@+id/txtResultadoFinal"
             android:layout_width="wrap_content"

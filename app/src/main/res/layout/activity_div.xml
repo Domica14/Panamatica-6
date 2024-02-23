@@ -5,14 +5,22 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:padding="16dp"
-                tools:context=".unidad1.Div">
+                tools:context=".unidad1.Div" android:background="@drawable/fondomath">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="409dp"
+            android:layout_height="61dp"
+            android:background="@drawable/blue_stroke"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/barraNavegacion3"
+    />
+
 
     <LinearLayout
             android:layout_width="368dp"
             android:layout_height="321dp"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center" android:layout_marginTop="121dp" android:layout_centerHorizontal="true">
 
         <TextView
                 android:id="@+id/txtPregunta"
@@ -28,13 +36,15 @@
                 android:layout_height="wrap_content"
                 android:hint="Ingresa tu respuesta"
                 android:textAlignment="center"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:layout_marginBottom="20dp"/>
         <Button
                 android:id="@+id/btnVerificar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verificar"/>
+                android:text="Verificar"
+                android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+                android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
 
         <View
                 android:id="@+id/view"
@@ -48,7 +58,6 @@
                 android:gravity="center"
                 android:text=""/>
     </LinearLayout>
-
     <Button
             android:id="@+id/btnFinal"
             android:layout_width="wrap_content"
@@ -58,6 +67,8 @@
             android:layout_marginBottom="18dp"
             android:visibility="invisible" android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
+            android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"
     />
 
     <Button
@@ -69,7 +80,10 @@
             android:text="Volver"
             android:layout_marginBottom="18dp"
             android:layout_marginEnd="20dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"
+    />
 
     <Button
             android:id="@+id/btnNext"
@@ -78,10 +92,11 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="Continuar"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="177dp"
             android:visibility="invisible"
+            android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"
     />
-
     <TextView
             android:id="@+id/txtResultadoFinal"
             android:layout_width="wrap_content"

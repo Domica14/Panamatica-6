@@ -24,7 +24,7 @@ Insertar imagenes
 
 - Clonar el repositorio
 - Abrirlo en Android Studio
-- Correrlo
+- Ejecutarlo
 
 
 

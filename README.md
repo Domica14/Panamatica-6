@@ -1,1 +1,0 @@
-# Documentación oficial del proyecto

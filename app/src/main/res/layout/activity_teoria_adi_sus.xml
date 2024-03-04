@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".unidad1.TeoriaAdiSus" android:background="#FFD390">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="409dp"
+            android:layout_height="80dp"
+            android:background="@drawable/blue_stroke"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/barraNavegacionLec"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.0"/>
+    <TextView
+            android:text="Adición y sustracción de números enteros"
+            android:layout_width="394dp"
+            android:layout_height="75dp" android:id="@+id/txtLeccion"
+            android:textAlignment="center" android:textSize="30sp"
+            android:textStyle="bold|italic" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.128" android:fontFamily="@font/inter_black"
+            android:textColor="#000000" app:layout_constraintHorizontal_bias="0.47"/>
+    <ImageView
+            android:src="@drawable/leccionadicion"
+            android:layout_width="384dp"
+            android:layout_height="222dp" android:id="@+id/imgAdicion"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.407" app:layout_constraintVertical_bias="0.395"/>
+    <ImageView
+            android:src="@drawable/leccionsustraccion"
+            android:layout_width="373dp"
+            android:layout_height="119dp" android:id="@+id/imgSustraccion"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.73"/>
+    <Button
+            android:text="Regresar"
+            android:layout_width="160dp"
+            android:layout_height="61dp" android:id="@+id/btnRegresarAdiSus"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.075" app:layout_constraintVertical_bias="0.979"
+            android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
+            android:textAlignment="center" android:textSize="20sp" android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+            android:text="Siguiente"
+            android:layout_width="160dp"
+            android:layout_height="61dp" android:id="@+id/btnSiguienteAdiSus"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.888" app:layout_constraintVertical_bias="0.978"
+            android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
+            android:textAlignment="center" android:textSize="20sp" android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

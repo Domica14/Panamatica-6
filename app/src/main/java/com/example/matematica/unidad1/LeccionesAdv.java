@@ -38,7 +38,7 @@ public class LeccionesAdv extends AppCompatActivity {
         leccionAdv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LeccionesAdv.this, Suma.class));
+                startActivity(new Intent(LeccionesAdv.this, TeoriaAdiSusAdv.class));
                 fade();
             }
         });
@@ -49,7 +49,7 @@ public class LeccionesAdv extends AppCompatActivity {
         leccionAdv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LeccionesAdv.this, Mult.class));
+                startActivity(new Intent(LeccionesAdv.this, TeoriaMultiDivAdv.class));
                 fade();
             }
         });

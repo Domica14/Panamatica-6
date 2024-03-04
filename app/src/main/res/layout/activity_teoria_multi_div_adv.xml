@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".unidad1.TeoriaMultiDivAdv" android:background="#FFD390">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="409dp"
+            android:layout_height="80dp"
+            android:background="@drawable/blue_stroke"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/barraNavegacionLec2Adv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.0"/>
+    <TextView
+            android:text="Multiplicación y división de números enteros"
+            android:layout_width="394dp"
+            android:layout_height="75dp" android:id="@+id/txtLeccion2Adv"
+            android:textAlignment="center" android:textSize="30sp"
+            android:textStyle="bold|italic" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.128" android:fontFamily="@font/inter_black"
+            android:textColor="#000000" app:layout_constraintHorizontal_bias="0.47"/>
+    <ImageView
+            android:src="@drawable/leccionmultiplicacion"
+            android:layout_width="381dp"
+            android:layout_height="191dp" android:id="@+id/imgMultiplicacion2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.34" app:layout_constraintHorizontal_bias="0.466"/>
+    <ImageView
+            android:src="@drawable/lecciondivision"
+            android:layout_width="370dp"
+            android:layout_height="168dp" android:id="@+id/imgDivision2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.688" app:layout_constraintHorizontal_bias="0.487"/>
+    <Button
+            android:text="Regresar"
+            android:layout_width="160dp"
+            android:layout_height="61dp" android:id="@+id/btnRegresarMultiDiv2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.075" app:layout_constraintVertical_bias="0.979"
+            android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
+            android:textAlignment="center" android:textSize="20sp" android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+            android:text="Siguiente"
+            android:layout_width="160dp"
+            android:layout_height="61dp" android:id="@+id/btnSiguienteMultiDiv2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.888" app:layout_constraintVertical_bias="0.978"
+            android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
+            android:textAlignment="center" android:textSize="20sp" android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

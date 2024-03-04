@@ -13,6 +13,18 @@
             android:theme="@style/Theme.Matematica"
             tools:targetApi="31">
         <activity
+                android:name=".unidad1.TeoriaMultiDivAdv"
+                android:exported="false"/>
+        <activity
+                android:name=".unidad1.TeoriaMultiDiv"
+                android:exported="false"/>
+        <activity
+                android:name=".unidad1.TeoriaAdiSusAdv"
+                android:exported="false"/>
+        <activity
+                android:name=".unidad1.TeoriaAdiSus"
+                android:exported="false"/>
+        <activity
                 android:name=".juegos.JuegoAdivinanzas"
                 android:exported="false"/>
         <activity

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
 import com.example.matematica.menu.SeleccionUnidad;
+import com.example.matematica.unidad1.*;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -16,13 +17,16 @@ import java.util.Random;
 public class JuegoAdivinanzas extends AppCompatActivity {
 
     //Declaracion de variables para manejar los elementos de la vista
-    private Button btnSalir, btnAdivinar;
+    private Button btnContinuar, btnAdivinar;
     private TextView txtAdivinanza;      //Mostrara la adivinanza
     private TextView txtResultado;      //Mostrara si se equivoco o no
     private EditText respuesta;         //Mostrara si la persona se equivoco o acerto
 
     //Se define un contador para saber cuantas veces se ha equivocado el usuario
     private int fallos = 0;
+
+    //Guarda el valor de la proxima activity
+    private int activity;
 
     //Se declara un HashMap para manejar las adivinanzas
 
@@ -56,6 +60,9 @@ public class JuegoAdivinanzas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_adivinanzas);
 
+        //Se obtiene el valor de la proxima activity
+        activity = getIntent().getExtras().getInt("proximaActivity");
+
         //Asociacion de variables con los elementos de la vista
 
         //Textos
@@ -65,7 +72,7 @@ public class JuegoAdivinanzas extends AppCompatActivity {
 
         //Botones
         btnAdivinar = findViewById(R.id.btnAdivinar);
-        btnSalir = findViewById(R.id.btnSalirAdi);
+        btnContinuar = findViewById(R.id.btnContinuarAdi);
 
         //Se prepara el juego
         configuracionJuego();
@@ -79,11 +86,10 @@ public class JuegoAdivinanzas extends AppCompatActivity {
         });
 
         //Listener para cuando se presiona el boton de salir
-        btnSalir.setOnClickListener(new View.OnClickListener() {
+        btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(JuegoAdivinanzas.this, SeleccionUnidad.class));
-                fade();
+                proximaActivity();
             }
         });
     }
@@ -122,6 +128,42 @@ public class JuegoAdivinanzas extends AppCompatActivity {
             txtResultado.setText("Incorrecto, la respuesta era: "+adivinanzaEscogida);
             respuesta.setEnabled(false);        //Se desactiva la opcion de escribir
             btnAdivinar.setEnabled(false);      //Se desactiva el boton
+        }
+    }
+
+    //Maneja el cambio de activities desde los juegos
+    public void proximaActivity(){
+        switch (activity){
+            case 2:
+                startActivity(new Intent(JuegoAdivinanzas.this, RestaEZ.class));
+                fade();
+                finish();
+                break;
+            case 3:
+                startActivity(new Intent(JuegoAdivinanzas.this, DivEZ.class));
+                fade();
+                finish();
+                break;
+            case 4:
+                startActivity(new Intent(JuegoAdivinanzas.this, Resta.class));
+                fade();
+                finish();
+                break;
+            case 5:
+                startActivity(new Intent(JuegoAdivinanzas.this, Div.class));
+                fade();
+                finish();
+                break;
+            case 6:
+                startActivity(new Intent(JuegoAdivinanzas.this, Lecciones.class));
+                fade();
+                finish();
+                break;
+            case 7:
+                startActivity(new Intent(JuegoAdivinanzas.this, LeccionesAdv.class));
+                fade();
+                finish();
+                break;
         }
     }
 

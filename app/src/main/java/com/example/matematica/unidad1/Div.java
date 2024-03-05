@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.matematica.R;
+import com.example.matematica.juegos.JuegoAdivinanzas;
+import com.example.matematica.juegos.JuegoX0;
 import com.example.matematica.menu.SeleccionUnidad;
 
 import java.util.Random;
@@ -64,9 +66,7 @@ public class Div extends AppCompatActivity {
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
+                cambioJuego();
             }
         });
 
@@ -172,5 +172,36 @@ public class Div extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    //Maneja el cambio hacia los juegos
+    private void cambioJuego(){
+        //Se crea una instancia de random y se genera un numero aleatorio para la seleccion de juego
+        Random random = new Random();
+        int juego = random.nextInt(2);
+
+        //Si tiene 4 o mas respuestas correctas aparece un juego
+        if (respuestasCorrectas>=4){
+            switch (juego){
+                case 0:
+                    Intent intent = new Intent(Div.this, JuegoX0.class);
+                    intent.putExtra("proximaActivity", 6);
+                    startActivity(intent);
+                    fade();
+                    finish();
+                    break;
+                case 1:
+                    Intent intent2 = new Intent(Div.this, JuegoAdivinanzas.class);
+                    intent2.putExtra("proximaActivity", 6);
+                    startActivity(intent2);
+                    fade();
+                    finish();
+                    break;
+            }
+        } else {
+            startActivity(new Intent(Div.this, Lecciones.class));
+            fade();
+            finish();
+        }
     }
 }

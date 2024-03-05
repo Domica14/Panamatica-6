@@ -49,9 +49,9 @@
             android:hint="Escribe tu respuesta aqui" style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:textColorHint="#474747"/>
     <Button
-            android:text="Salir"
-            android:layout_width="130dp"
-            android:layout_height="59dp" android:id="@+id/btnSalirAdi"
+            android:text="Continuar"
+            android:layout_width="166dp"
+            android:layout_height="64dp" android:id="@+id/btnContinuarAdi"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.946"

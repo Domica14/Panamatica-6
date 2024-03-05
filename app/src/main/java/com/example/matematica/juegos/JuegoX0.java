@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.matematica.R;
 import com.example.matematica.menu.MainActivity;
 import com.example.matematica.menu.SeleccionUnidad;
+import com.example.matematica.unidad1.*;
 
 import java.util.*;
 
@@ -19,7 +20,7 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
     //Declaracion de variables para manejar los elementos de la vista
     //Los ImageView de cuadros manejan cada uno de los espacios donde se colocaran las X y los 0
     private ImageView cuadro1, cuadro2, cuadro3, cuadro4, cuadro5, cuadro6, cuadro7, cuadro8, cuadro9;
-    private Button btnSalir;
+    private Button btnContinuar;
     private TextView txtResultado;
 
     //Al iniciar el juego se crea un set que manejara las opciones seleccionadas por el usuario y otro del contrincante
@@ -30,10 +31,16 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
     private int[][] combinaciones = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {1, 5, 9}, {3, 5, 7}, {1, 4, 7},
                                      {2, 5, 8}, {3, 6, 9}};
 
+    //Guarda el valor de la proxima activity
+    private int activity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_x0);
+
+        //Se obtiene el valor de la proxima activity
+        activity = getIntent().getExtras().getInt("proximaActivity");
 
         //Asociacion de variables con los elementos de la vista
 
@@ -41,7 +48,7 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
         txtResultado= findViewById(R.id.txtGanador);
 
         //Boton
-        btnSalir = findViewById(R.id.btnSalir);
+        btnContinuar = findViewById(R.id.btnContinuar);
 
         //ImageView (Cuadros)
         //Fila 1
@@ -58,7 +65,7 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
         cuadro9 = findViewById(R.id.cuadro9);
 
         //Listener para salir del juego
-        btnSalir.setOnClickListener(this);      //Se hace una llamada al metodo onClick
+        btnContinuar.setOnClickListener(this);      //Se hace una llamada al metodo onClick
 
         //Listener de botones para cuadros, primera fila
         cuadro1.setOnClickListener(this);
@@ -85,10 +92,8 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
         //Boton de salir
         int id = v.getId();
         juego(id);
-        if (id == R.id.btnSalir) {
-            startActivity(new Intent(JuegoX0.this, SeleccionUnidad.class));
-            fade();
-            finish();
+        if (id == R.id.btnContinuar) {
+            proximaActivity();
         }
     }
 
@@ -242,6 +247,42 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
             }
         }
         return false;    //Retorna false de no alcanzar las 3 coincidencias
+    }
+
+    //Maneja el cambio de activities desde los juegos
+    public void proximaActivity(){
+        switch (activity){
+            case 2:
+                startActivity(new Intent(JuegoX0.this, RestaEZ.class));
+                fade();
+                finish();
+                break;
+            case 3:
+                startActivity(new Intent(JuegoX0.this, DivEZ.class));
+                fade();
+                finish();
+                break;
+            case 4:
+                startActivity(new Intent(JuegoX0.this, Resta.class));
+                fade();
+                finish();
+                break;
+            case 5:
+                startActivity(new Intent(JuegoX0.this, Div.class));
+                fade();
+                finish();
+                break;
+            case 6:
+                startActivity(new Intent(JuegoX0.this, Lecciones.class));
+                fade();
+                finish();
+                break;
+            case 7:
+                startActivity(new Intent(JuegoX0.this, LeccionesAdv.class));
+                fade();
+                finish();
+                break;
+        }
     }
 
     /*Se sobrescribe el metodo de onBackPressed para que realize el retroceso a la activity anterior al presionar

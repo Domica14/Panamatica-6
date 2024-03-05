@@ -28,8 +28,6 @@ public class SeleccionUnidad extends AppCompatActivity {
         //Asociacion de variables con los elementos de la vista
         unidad1 = findViewById(R.id.unidad1);
         btnAtras = findViewById(R.id.btnRegresar);
-        unidad2 = findViewById(R.id.unidad2);           //Provisional para juego
-        unidad3 = findViewById(R.id.unidad3);           //Provisional para experimentar problemas
 
 
         //Listeners para que se realize una accion al presionar la imagen
@@ -37,23 +35,6 @@ public class SeleccionUnidad extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SeleccionUnidad.this, SeleccionDificultad.class));
-                fade();
-            }
-        });
-
-        //Provisional para juego
-        unidad2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SeleccionUnidad.this, JuegoX0.class));
-                fade();
-            }
-        });
-
-        unidad3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SeleccionUnidad.this, JuegoAdivinanzas.class));
                 fade();
             }
         });

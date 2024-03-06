@@ -47,6 +47,7 @@
             android:layout_height="62dp" android:id="@+id/btnMenu"
             android:backgroundTint="#F68D2E"
             android:fontFamily="@font/inter_black" android:textSize="20sp" android:textStyle="bold"
+            android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@+id/opcionAvanzado" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.515"/>

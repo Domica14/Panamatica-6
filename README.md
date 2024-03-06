@@ -15,16 +15,18 @@ Insertar imagenes
 
 ## Características
 
-- Aprendizaje interactivo
-- Juegos
+- Adaptabilidad
+- Interactividad
+- Facilidad de uso
 
 
 
 ## Instalación
 
 - Clonar el repositorio
-- Abrirlo en Android Studio
-- Ejecutarlo
+- Abrirlo en su IDE de preferencia
+- Vincular al dispositivo de prueba
+- Ejecutar
 
 
 
@@ -36,7 +38,7 @@ Insertar imagenes
 
 ## Licencia
 
-Mira la licencia el archivo de [licencia](COPYING) para derechos y limitaciones (GNU GPLv3).
+Mira el archivo de [licencia](COPYING) para derechos y limitaciones (GNU GPLv3).
 
 
 ## Autores

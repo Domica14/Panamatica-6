@@ -45,9 +45,11 @@ public class Mult extends AppCompatActivity {
 
         generarOperacion();
 
+        //Muestra el intento en el que esta el usuario.
         txtResultado.setText("Intento: " + Count);
 
 
+        //Funcionamiento para el boton de reiniciar.
         btnFinal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +58,7 @@ public class Mult extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento para el boton de volver.
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +66,7 @@ public class Mult extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento para el boton de continuar.
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +76,7 @@ public class Mult extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento para el boton de Verifcar.
         btnVerificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,15 +86,18 @@ public class Mult extends AppCompatActivity {
     }
 
     //Generacion de numeros aleatorios para los problemas
+    //Se ha establecido un limite de 30 en ambos casos para no llegar a numeros muy altos
+    //Esto puede ser cambiado facilmente en cualquier caso.
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(30) + 1;
-        int numero2 = random.nextInt(30) + 1;
+        int numero1 = random.nextInt(30) + 1; //Generacion aleatoria del 1 al 30
+        int numero2 = random.nextInt(30) + 1; //Generacion aleatoria del 1 al 30
         respuestaCorrecta = numero1 * numero2;
 
         txtPregunta.setText(numero1 + " x " + numero2 + " = ?");
     }
 
+    //Método para verificar la respuesta que da el usuario
     private void verificarRespuesta() {
         String respuestaStr = Respuesta.getText().toString().trim();
 
@@ -100,6 +108,7 @@ public class Mult extends AppCompatActivity {
 
             int respuestaUsuario = Integer.parseInt(respuestaStr);
 
+            //Se compara la respuesta del usuario con la verdadera para dar un veredicto.
             if (respuestaUsuario == respuestaCorrecta) {
                 mostrarToast("¡Correcto!");
                 respuestasCorrectas++;
@@ -107,6 +116,9 @@ public class Mult extends AppCompatActivity {
                 mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
             }
 
+            //Mientras el contador de intentos sea menor o igual a 5, se seguiran generando problemas
+            //Cuando ya pase de 5, este mostrara los botones ocultos que tienen ciertos funcionamientos
+            //Tambien se podrá ver los resultados.
             if (Count <= 5) {
                 txtResultado.setText("Intento: " + Count);
                 generarOperacion();
@@ -133,21 +145,25 @@ public class Mult extends AppCompatActivity {
         }
     }
 
-
+    //Metodo para el uso de los mensajes emergentes.
     private void mostrarToast(String mensaje) {
         Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
     }
 
+    //Metodo para el uso del boton back del mismo celular.
     public void onBackPressed() {
         mostrarDialogoConfirmacion();
     }
 
+    //Animaciones para el flujo de la activity
     public void fade() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
+    // Agrega banderas al intent para limpiar la pila de actividades
+    // y comenzar una nueva tarea al reiniciar la actividad, la cual se fectuará al presionar el boton Reiniciar.
     private void reiniciarActivity() {
         Intent intent = getIntent();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -155,6 +171,7 @@ public class Mult extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Metodo para el uso del AlertDialog.
     private void mostrarDialogoConfirmacion() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Volver a la selección de unidad y perder el progreso?").setTitle("Confirmación");

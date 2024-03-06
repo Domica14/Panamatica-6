@@ -55,8 +55,10 @@ public class RestaEZ extends AppCompatActivity {
 
         generarOperacion();
 
+        //Contador de intentos.
         txtResultado.setText("Intento: " + Count);
 
+        //Funcionamiento del boton Reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +67,7 @@ public class RestaEZ extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento del boton Volver
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +75,7 @@ public class RestaEZ extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento del boton Continuar
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +83,7 @@ public class RestaEZ extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento de los botones de posible respuesta.
         for (Button btn : btnOpciones) {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,42 +94,48 @@ public class RestaEZ extends AppCompatActivity {
         }
     }
 
+    //Metodo que genera la operacion
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(100);
-        int numero2 = random.nextInt(100);
+        int numero1 = random.nextInt(100) + 1; //Generación Aleatoria del 1 al 100
+        int numero2 = random.nextInt(100) + 1; //Generación Aleatoria del 1 al 100
         respuestaCorrecta = numero1 - numero2;
 
         txtPregunta.setText(numero1 + " - " + numero2 + " = ?");
 
-        respuestasAsignadas.clear();
+        respuestasAsignadas.clear(); // Limpiar el conjunto antes de generar nuevas respuestas
 
-        int botonRespuestaCorrecta = random.nextInt(4);
+        // Colocar la respuesta correcta en uno de los botones
+        int botonRespuestaCorrecta = random.nextInt(4); // Número aleatorio entre 0 y 3
         btnOpciones[botonRespuestaCorrecta].setText(String.valueOf(respuestaCorrecta));
-        respuestasAsignadas.add(respuestaCorrecta);
+        respuestasAsignadas.add(respuestaCorrecta); // Agregar la respuesta correcta al conjunto
 
+        //Ciclo que se repetirá hasta que todas las opciones incorrectas esten ubicadas.
         for (int i = 0; i < 4; i++) {
             if (i != botonRespuestaCorrecta) {
                 int respuestaIncorrecta;
                 do {
                     respuestaIncorrecta = generarRespuestaIncorrecta();
-                } while (respuestasAsignadas.contains(respuestaIncorrecta));
+                } while (respuestasAsignadas.contains(respuestaIncorrecta)); // Verificar si la respuesta ya está en el conjunto
                 btnOpciones[i].setText(String.valueOf(respuestaIncorrecta));
-                respuestasAsignadas.add(respuestaIncorrecta);
+                respuestasAsignadas.add(respuestaIncorrecta); // Agregar la respuesta incorrecta al conjunto
             }
         }
     }
 
+    //Método que se encarga de generar las respuestas incorrectas.
     private int generarRespuestaIncorrecta() {
         Random random = new Random();
         int rango = 20;
-        return respuestaCorrecta + random.nextInt(rango) - rango / 2;
+        return respuestaCorrecta + random.nextInt(rango) - rango / 2; //Creamos respuestas incorrectas que esten algo cerca de la verdadera para que haya mas cercania
     }
 
+    //Método que se encarga de verificar si el botón seleccionado es el correcto o no.
     private void verificarRespuesta(Button opcionSeleccionada) {
         int respuestaUsuario = Integer.parseInt(opcionSeleccionada.getText().toString());
         Count++;
 
+        //Se compara la seleccion del usuario con la respuesta verdadera para dar un veredicto.
         if (respuestaUsuario == respuestaCorrecta) {
             mostrarToast("¡Correcto!");
             respuestasCorrectas++;
@@ -132,9 +143,12 @@ public class RestaEZ extends AppCompatActivity {
             mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
         }
 
+        //Mientras el contador se mantenga debajo o igual a 5, se seguiran efectuando las operaciones.
         if (Count <= 5) {
             txtResultado.setText("Intento: " + Count);
             generarOperacion();
+            //Una ves pase de 5, apareceran los botones que tendrán cada uno una función.
+            //Aquí podremos ver nuestro resultado de igual manera.
         } else {
             btnFinal.setEnabled(true);
             btnFinal.setVisibility(View.VISIBLE);
@@ -152,20 +166,25 @@ public class RestaEZ extends AppCompatActivity {
         }
     }
 
+    //MEtodo para el uso de mensajes emergentes
     private void mostrarToast(String mensaje) {
         Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
     }
 
+    //Metodo para el uso del boton de back del mismo celular.
     public void onBackPressed() {
         mostrarDialogoConfirmacion();
     }
 
+    //Metodo para las animaciones en el flujo del activity.
     public void fade() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
+    // Agrega banderas al intent para limpiar la pila de actividades
+    // y comenzar una nueva tarea al reiniciar la actividad, la cual se fectuará al presionar el boton Reiniciar.
     private void reiniciarActivity() {
         Intent intent = getIntent();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -173,6 +192,7 @@ public class RestaEZ extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Metodo que permite el uso del AlertDialog
     private void mostrarDialogoConfirmacion() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Volver a la selección de unidad y perder el progreso?").setTitle("Confirmación");

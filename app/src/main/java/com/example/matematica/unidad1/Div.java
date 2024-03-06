@@ -45,9 +45,11 @@ public class Div extends AppCompatActivity {
 
         generarOperacion();
 
+        //Texto el cual nos dará a conocer el intento en el que nos encontramos.
         txtResultado.setText("Intento: " + Count);
 
-
+        /*Funcionamiento del Botón Reiniciar, el cual nos permitirá comenzar desde el inicio los problemas.
+          Este solo aparecerá cuando se terminen los 5 intentos.*/
         btnFinal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +58,7 @@ public class Div extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento del boton volver, en caso de querer volver a la elección de unidad.
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +66,7 @@ public class Div extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento del boton Continuar, el cual nos permitirá continuar con el flujo de ventanas.
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +74,7 @@ public class Div extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento para el botón de verificar, el cual nos permitirá saber si la respuesta es correcta.
         btnVerificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,29 +83,33 @@ public class Div extends AppCompatActivity {
         });
     }
 
-    //Generacion de numeros aleatorios para los problemas
+    /*Generacion de numeros aleatorios para los problemas.
+      Utilizamos esta funcion para que se pueda generar una operación completa.*/
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(12) + 1;
-        int numero2 = random.nextInt(12) + 1;
+        int numero1 = random.nextInt(12) + 1; //Generación aleatoria del 1 al 12.
+        int numero2 = random.nextInt(12) + 1; //Generación aleatoria del 1 al 12.
         respuestaCorrecta = (double) numero1 / numero2;
 
         txtPregunta.setText(numero1 + " / " + numero2 + " = ?");
     }
 
+    //Método que se encargará de verificar si nuestra respuesta es correcta.
     private void verificarRespuesta() {
         String respuestaStr = Respuesta.getText().toString().trim();
 
         // Verificar si el campo de respuesta no está vacío
         if (!respuestaStr.isEmpty()) {
 
+            //Si el campo no esta vacío, redondeamos la respuesta del usuario y la respuesta verdadera a solo 1 decimal.
             double respuestaUsuario = Double.parseDouble(respuestaStr);
             respuestaUsuario = Math.round(respuestaUsuario * 10.0) / 10.0; // Redondear a 1 decimal
             respuestaCorrecta = Math.round(respuestaCorrecta * 10.0) / 10.0; // Redondear a 1 decimal
 
-            // Incrementar el contador
+            // Incrementar el contador para llevar control de intentos.
             Count++;
 
+            //Se compara la respuesta del usuario con la respuesta verdera para dar un veredicto.
             if (respuestaUsuario == respuestaCorrecta) {
                 mostrarToast("¡Correcto!");
                 respuestasCorrectas++;
@@ -108,7 +117,10 @@ public class Div extends AppCompatActivity {
                 mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
             }
 
+            /*Mientras el contador sea menor o igual a 5 se seguiran generando operaciones.
+              Una vez se culminen los 5 intentos, apareceran ciertos botones y nuestro resultado final.*/
             if (Count <= 5) {
+
                 txtResultado.setText("Intento: " + Count);
                 generarOperacion();
             } else {
@@ -128,6 +140,7 @@ public class Div extends AppCompatActivity {
                 txtResultadoFinal.setText("Resultado: " + respuestasCorrectas + "/5");
             }
 
+            //Si el campo de respuesta esta vacío se mostrará un mensaje el cual nos alertará que esta vacío y no avanzará el contador.
         } else {
             // Mostrar un mensaje indicando que el campo de respuesta está vacío
             mostrarToast("Por favor, ingresa tu respuesta antes de verificar.");
@@ -135,20 +148,25 @@ public class Div extends AppCompatActivity {
     }
 
 
+    //Método el cual nos permite generar mensajes emergentes al usuario.
     private void mostrarToast(String mensaje) {
         Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
     }
 
+    //Método que permite que, al apretar el botón back del celular se pueda ejecutar cierta acción.
     public void onBackPressed() {
         mostrarDialogoConfirmacion();
     }
 
+    //Para animaciones entre activitys.
     public void fade() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
+    // Agrega banderas al intent para limpiar la pila de actividades
+    // y comenzar una nueva tarea al reiniciar la actividad, la cual se fectuará al presionar el boton Reiniciar.
     private void reiniciarActivity() {
         Intent intent = getIntent();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -156,6 +174,8 @@ public class Div extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Método que nos permitirá mostrar un alertDialog a la hora de querer retroceder mientras estamos en los problemas
+    //o al llegar al de los intentos cuando seleccionamos el boton "Atras".
     private void mostrarDialogoConfirmacion() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Volver a la selección de unidad y perder el progreso?").setTitle("Confirmación");

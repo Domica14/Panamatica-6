@@ -8,8 +8,8 @@
         tools:context=".unidad1.SeleccionDificultad" android:background="#FFD390">
 
     <androidx.appcompat.widget.Toolbar
-            android:layout_width="409dp"
-            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
             android:background="@drawable/blue_stroke"
             android:theme="?attr/actionBarTheme"
             android:minHeight="?attr/actionBarSize" android:id="@+id/barraNavegacion2"
@@ -24,7 +24,7 @@
             android:textStyle="bold|italic" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.122" android:fontFamily="@font/inter_black"
+            app:layout_constraintVertical_bias="0.098" android:fontFamily="@font/inter_black"
             android:textColor="#000000"/>
     <ImageView
             android:layout_width="225dp"
@@ -32,15 +32,15 @@
             android:id="@+id/opcionPrincipiante"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.359"
-            app:layout_constraintHorizontal_bias="0.494"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.363"
+    />
     <ImageView
             android:layout_width="207dp"
             android:layout_height="221dp" app:srcCompat="@drawable/modoavanzado" android:id="@+id/opcionAvanzado"
             app:layout_constraintTop_toBottomOf="@+id/opcionPrincipiante"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.187" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"/>
+            app:layout_constraintVertical_bias="0.086" app:layout_constraintStart_toStartOf="parent"
+    />
     <Button
             android:text="Menú Principal"
             android:layout_width="207dp"
@@ -48,5 +48,6 @@
             android:backgroundTint="#F68D2E"
             android:fontFamily="@font/inter_black" android:textSize="20sp" android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/opcionAvanzado" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.515"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

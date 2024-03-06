@@ -45,9 +45,10 @@ public class Suma extends AppCompatActivity {
 
         generarOperacion();
 
+        //Contador de Intentos
         txtResultado.setText("Intento: " + Count);
 
-
+        //Funcionamiento del boton Reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +57,7 @@ public class Suma extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento del boton Volver
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +65,7 @@ public class Suma extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento del boton Continuar
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +73,7 @@ public class Suma extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento del boton Verificar
         btnVerificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,13 +85,14 @@ public class Suma extends AppCompatActivity {
     //Generacion de numeros aleatorios para los problemas
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(100);
-        int numero2 = random.nextInt(100);
+        int numero1 = random.nextInt(100) + 1; //Generación Aleatoria del 1 al 100
+        int numero2 = random.nextInt(100) + 1; //Generación Aleatoria del 1 al 100
         respuestaCorrecta = numero1 + numero2;
 
         txtPregunta.setText(numero1 + " + " + numero2 + " = ?");
     }
 
+    //Método que verifica si la respuesta del usuario es correcta
     private void verificarRespuesta() {
         String respuestaStr = Respuesta.getText().toString().trim();
 
@@ -98,6 +103,7 @@ public class Suma extends AppCompatActivity {
 
             int respuestaUsuario = Integer.parseInt(respuestaStr);
 
+            //Compara la respuesta del usuario con la verdarera para dar un veredicto.
             if (respuestaUsuario == respuestaCorrecta) {
                 mostrarToast("¡Correcto!");
                 respuestasCorrectas++;
@@ -105,9 +111,12 @@ public class Suma extends AppCompatActivity {
                 mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
             }
 
+            //Mientras los intentos sean menor o igual a 5, se seguiran creando operaciones.
             if (Count <= 5) {
                 txtResultado.setText("Intento: " + Count);
                 generarOperacion();
+                //Una vez pase de 5, apareceran algunos botones con sus respectivas acciones
+                //Ademas de que podremos ver nuestro resultado.
             } else {
                 btnFinal.setEnabled(true);
                 btnFinal.setVisibility(View.VISIBLE);
@@ -131,21 +140,25 @@ public class Suma extends AppCompatActivity {
         }
     }
 
-
+    //Metodo para el uso de mensajes emergentes
     private void mostrarToast(String mensaje) {
         Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
     }
 
+    //Metodo para el uso del boton back del mismo celular.
     public void onBackPressed() {
         mostrarDialogoConfirmacion();
     }
 
+    //Metodo para las animaciones en el flujo del activity
     public void fade() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
+    // Agrega banderas al intent para limpiar la pila de actividades
+    // y comenzar una nueva tarea al reiniciar la actividad, la cual se fectuará al presionar el boton Reiniciar.
     private void reiniciarActivity() {
         Intent intent = getIntent();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -153,6 +166,7 @@ public class Suma extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Metodo para el uso del AlertDialog
     private void mostrarDialogoConfirmacion() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Volver a la selección de unidad y perder el progreso?").setTitle("Confirmación");

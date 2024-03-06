@@ -25,6 +25,7 @@ public class Lecciones extends AppCompatActivity {
         Atras = findViewById(R.id.Atras);
 
 
+        //Funcionamiento del boton de Atras, volviendo asi a la seleccion de dificultad
         Atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,8 +34,8 @@ public class Lecciones extends AppCompatActivity {
             }
         });
 
-        /*Una vez se toque la lección 1, la acción mandará al material que contiene dicha lección
-         esto en modo facil*/
+        /*Una vez se toque la lección 1, la acción mandará al material que contiene dicha lección.
+         Esto en modo facil*/
         leccion1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

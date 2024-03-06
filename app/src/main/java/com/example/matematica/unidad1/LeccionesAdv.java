@@ -24,7 +24,7 @@ public class LeccionesAdv extends AppCompatActivity {
         leccionAdv2 = findViewById(R.id.imageView2);
         Atras = findViewById(R.id.Atras);
 
-
+        //Funcionamiento del boton de Atras, volviendo asi a la seleccion de dificultad
         Atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

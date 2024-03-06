@@ -63,8 +63,10 @@ public class DivEZ extends AppCompatActivity {
 
         generarOperacion();
 
+        //Texto que permite ver el intento en el que se encuentra el usuario.
         txtResultado.setText("Intento: " + Count);
 
+        //Funcionamiento para el boton de reiniciar.
         btnFinal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +75,7 @@ public class DivEZ extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento para el boton Volver.
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +83,7 @@ public class DivEZ extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento para el boton continuar.
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +91,7 @@ public class DivEZ extends AppCompatActivity {
             }
         });
 
+        //Funcionamiento para los botones que contienen la posible respuesta.
         for (Button btn : btnOpciones) {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -97,13 +102,13 @@ public class DivEZ extends AppCompatActivity {
         }
     }
 
-    // Dividendo y Divisor con límite de 12, de manera aleatoria
+    //Dividendo y Divisor con límite de 12, de manera aleatoria
     private void generarOperacion() {
         Random random = new Random();
-        int numero1 = random.nextInt(12) + 1;
-        int numero2 = random.nextInt(12) + 1;
+        int numero1 = random.nextInt(12) + 1; //Generación Aleatotia del 1 al 12
+        int numero2 = random.nextInt(12) + 1; //Generación Aleatotia del 1 al 12
         respuestaCorrecta = (double) numero1 / numero2;
-        respuestaCorrecta = Math.round(respuestaCorrecta * 10.0) / 10.0;
+        respuestaCorrecta = Math.round(respuestaCorrecta * 10.0) / 10.0; //La respuesta correcta se redondea para evitar numeros muy extensos.
 
         txtPregunta.setText(numero1 + " / " + numero2 + " = ?");
 
@@ -114,6 +119,7 @@ public class DivEZ extends AppCompatActivity {
         btnOpciones[botonRespuestaCorrecta].setText(String.format("%.1f", respuestaCorrecta));
         respuestasGeneradas.add(respuestaCorrecta); // Agregar la respuesta correcta al conjunto
 
+        //Ciclo que se repetirá hasta que todas las opciones incorrectas esten ubicadas.
         for (int i = 0; i < 4; i++) {
             if (i != botonRespuestaCorrecta) {
                 double respuestaIncorrecta;
@@ -127,6 +133,7 @@ public class DivEZ extends AppCompatActivity {
         }
     }
 
+    //Método que se encarga de generar las respuestas incorrectas.
     private double generarRespuestaIncorrecta() {
         Random random = new Random();
         double rango = 1.0; // Define el rango de diferencia permitido
@@ -151,12 +158,13 @@ public class DivEZ extends AppCompatActivity {
         return respuestaIncorrecta;
     }
 
-
+    //Método que se encarga de verificar si el botón seleccionado es el correcto o no.
     private void verificarRespuesta(Button opcionSeleccionada) {
         double respuestaUsuario = Double.parseDouble(opcionSeleccionada.getText().toString());
         respuestaUsuario = Math.round(respuestaUsuario * 10.0) / 10.0; // Redondear a un decimal
         Count++;
 
+        //Se compara la seleccion del usuario con la respuesta verdadera para dar un veredicto.
         if (respuestaUsuario == respuestaCorrecta) {
             mostrarToast("¡Correcto!");
             respuestasCorrectas++;
@@ -164,9 +172,13 @@ public class DivEZ extends AppCompatActivity {
             mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
         }
 
+        //Mientras el contador se mantenga debajo o igual a 5, se seguiran efectuando las operaciones.
         if (Count <= 5) {
             txtResultado.setText("Intento: " + Count);
             generarOperacion();
+
+            //Una ves pase de 5, apareceran los botones que tendrán cada uno una función.
+            //Aquí podremos ver nuestro resultado de igual manera.
         } else {
             btnFinal.setEnabled(true);
             btnFinal.setVisibility(View.VISIBLE);
@@ -184,20 +196,25 @@ public class DivEZ extends AppCompatActivity {
         }
     }
 
+    //Método para el uso de los mensajes emergentes.
     private void mostrarToast(String mensaje) {
         Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
     }
 
+    //Método para el boton de back del mismo celular, y que este pueda efectuar cierta acción.
     public void onBackPressed() {
         mostrarDialogoConfirmacion();
     }
 
+    //Animacion para el flujo de la activity.
     public void fade() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
+    // Agrega banderas al intent para limpiar la pila de actividades
+    // y comenzar una nueva tarea al reiniciar la actividad, la cual se fectuará al presionar el boton Reiniciar.
     private void reiniciarActivity() {
         Intent intent = getIntent();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -205,6 +222,7 @@ public class DivEZ extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Método para el uso del alertDialog para cuando se desee retroceder.
     private void mostrarDialogoConfirmacion() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Volver a la selección de unidad y perder el progreso?").setTitle("Confirmación");

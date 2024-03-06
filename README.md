@@ -36,7 +36,7 @@ Insertar imagenes
 
 ## Licencia
 
-[MIT](https://choosealicense.com/licenses/mit/)
+Mira la licencia el archivo de [licencia](COPYING) para derechos y limitaciones (GNU GPLv3).
 
 
 ## Autores

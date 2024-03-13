@@ -10,9 +10,7 @@ App móvil donde los estudiantes de la asignatura de matemáticas podrán aprend
 
 ## Capturas
 
-![Pantalla Inicial](https://github.com/Domica14/Panamatica-6/assets/139078203/fd34e9ea-13f1-4700-b830-1cf12b34671d) ![Seleccion Unidad](https://github.com/Domica14/Panamatica-6/assets/139078203/45c8e2ac-0dde-45a5-bceb-6e8332520d76)
-![Seleccion Dificultad](https://github.com/Domica14/Panamatica-6/assets/139078203/f16a7107-b9ca-4599-bd25-31c30f4c6cf3) ![Diseño Facil](https://github.com/Domica14/Panamatica-6/assets/139078203/cf99537e-7661-4df0-bb3a-e326de7ebc3e)
-![Diseño Avanzado](https://github.com/Domica14/Panamatica-6/assets/139078203/34e740fa-39b7-4c0e-a566-1d76600a3050)
+<img src="https://github.com/Domica14/Panamatica-6/assets/139078203/fd34e9ea-13f1-4700-b830-1cf12b34671d" alt="Portada" width="200px"/> <img src="https://github.com/Domica14/Panamatica-6/assets/139078203/45c8e2ac-0dde-45a5-bceb-6e8332520d76" alt="Seleccion Unidad" width="200px"/> <img src="https://github.com/Domica14/Panamatica-6/assets/139078203/f16a7107-b9ca-4599-bd25-31c30f4c6cf3" alt="Seleccion Dificultad" width="200px"/> <img src="https://github.com/Domica14/Panamatica-6/assets/139078203/cf99537e-7661-4df0-bb3a-e326de7ebc3e" alt="Diseño Facil" width="200px"/> <img src="https://github.com/Domica14/Panamatica-6/assets/139078203/34e740fa-39b7-4c0e-a566-1d76600a3050" alt="Diseño Avanzado" width="200px"/>
 
 
 

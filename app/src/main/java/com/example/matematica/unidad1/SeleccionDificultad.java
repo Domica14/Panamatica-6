@@ -1,6 +1,7 @@
 package com.example.matematica.unidad1;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ public class SeleccionDificultad extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccion_dificultad);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
 
         //Asociacion de variables con los elementos del acttivity
         opcionFacil = findViewById(R.id.opcionPrincipiante);

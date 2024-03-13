@@ -1,6 +1,7 @@
 package com.example.matematica.unidad1;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ public class TeoriaAdiSus extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teoria_adi_sus);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
 
         btnRegresar = findViewById(R.id.btnRegresarAdiSus);
         btnSiguiente = findViewById(R.id.btnSiguienteAdiSus);

@@ -1,6 +1,7 @@
 package com.example.matematica.juegos;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,6 +60,7 @@ public class JuegoAdivinanzas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_adivinanzas);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
 
         //Se obtiene el valor de la proxima activity
         activity = getIntent().getExtras().getInt("proximaActivity");

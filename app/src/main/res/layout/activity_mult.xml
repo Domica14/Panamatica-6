@@ -8,7 +8,7 @@
                 tools:context=".unidad1.Mult" android:background="@drawable/fondomath">
 
     <androidx.appcompat.widget.Toolbar
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="61dp"
             android:background="@drawable/blue_stroke"
             android:theme="?attr/actionBarTheme"

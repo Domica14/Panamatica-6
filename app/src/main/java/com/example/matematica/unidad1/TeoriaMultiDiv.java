@@ -1,6 +1,7 @@
 package com.example.matematica.unidad1;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ public class TeoriaMultiDiv extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teoria_multi_div);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
 
         btnRegresar = findViewById(R.id.btnRegresarMultiDiv);
         btnSiguiente = findViewById(R.id.btnSiguienteMultiDiv);

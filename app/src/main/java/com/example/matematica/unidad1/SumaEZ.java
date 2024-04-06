@@ -44,7 +44,7 @@ public class SumaEZ extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suma_ez);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Bloquea la orientacion de pantalla
 
         txtPregunta = findViewById(R.id.txtPregunta);
         txtResultado = findViewById(R.id.txtResultado);
@@ -64,8 +64,6 @@ public class SumaEZ extends AppCompatActivity {
 
         mp = MediaPlayer.create(this, R.raw.button);
         mp2 = MediaPlayer.create(this, R.raw.soundb);
-
-
 
         generarOperacion();
 
@@ -193,9 +191,9 @@ public class SumaEZ extends AppCompatActivity {
 
             //Una ves pase de 5, apareceran los botones que tendrán cada uno una función.
             //Aquí podremos ver nuestro resultado de igual manera.
-        } else {
+        }
 
-
+        else {
 
             btnFinal.setEnabled(true);
             btnFinal.setVisibility(View.VISIBLE);

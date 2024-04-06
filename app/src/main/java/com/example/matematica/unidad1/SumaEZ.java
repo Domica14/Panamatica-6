@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Gravity;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -24,6 +28,9 @@ import java.util.Set;
 public class SumaEZ extends AppCompatActivity {
 
     TextView txtPregunta, txtResultado;
+
+    MediaPlayer mp, mp2;
+
     Button[] btnOpciones;
 
     Button btnFinal, btnVolver, btnContinuar;
@@ -54,6 +61,11 @@ public class SumaEZ extends AppCompatActivity {
         btnFinal.setEnabled(false);
         btnVolver.setEnabled(false);
         btnContinuar.setEnabled(false);
+
+        mp = MediaPlayer.create(this, R.raw.button);
+        mp2 = MediaPlayer.create(this, R.raw.soundb);
+
+
 
         generarOperacion();
 
@@ -137,21 +149,54 @@ public class SumaEZ extends AppCompatActivity {
         int respuestaUsuario = Integer.parseInt(opcionSeleccionada.getText().toString());
         Count++;
 
+        for (Button btn : btnOpciones) {
+            btn.setEnabled(false);
+        }
+
         //Se compara la seleccion del usuario con la respuesta verdadera para dar un veredicto.
         if (respuestaUsuario == respuestaCorrecta) {
             mostrarToast("¡Correcto!");
             respuestasCorrectas++;
+            mp.start();
+            opcionSeleccionada.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light)); // Cambia el color de fondo del botón a verde
         } else {
             mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
+            mp2.start();
+            opcionSeleccionada.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light)); // Cambia el color de fondo del botón a rojo
         }
 
         //Mientras el contador se mantenga debajo o igual a 5, se seguiran efectuando las operaciones.
         if (Count <= 5) {
-            txtResultado.setText("Intento: " + Count);
-            generarOperacion();
+
+            // Agregar un retraso antes de generar una nueva operación
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    for (Button btn : btnOpciones) {
+                        btn.setEnabled(true);
+                    }
+
+                    txtResultado.setText("Intento: " + Count);
+
+                    generarOperacion();
+
+                    int colorFondo = Color.parseColor("#F68D2E");
+                    for (Button btn : btnOpciones) {
+                        btn.setBackgroundColor(colorFondo);
+                    }
+
+                }
+            }, 1000); // 1000 milisegundos (1 segundo) de retraso antes de generar la próxima operación
+
+
             //Una ves pase de 5, apareceran los botones que tendrán cada uno una función.
             //Aquí podremos ver nuestro resultado de igual manera.
         } else {
+
+
+
             btnFinal.setEnabled(true);
             btnFinal.setVisibility(View.VISIBLE);
             btnVolver.setEnabled(true);

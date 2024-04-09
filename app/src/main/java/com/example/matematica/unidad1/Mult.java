@@ -3,6 +3,7 @@ package com.example.matematica.unidad1;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.view.Gravity;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -26,6 +27,8 @@ public class Mult extends AppCompatActivity {
     Button btnVerificar;
     int respuestaCorrecta, Count = 1;
 
+    MediaPlayer mp, mp2;
+
     int respuestasCorrectas = 0;
 
     @Override
@@ -44,6 +47,9 @@ public class Mult extends AppCompatActivity {
         btnFinal.setEnabled(false);
         btnVolver.setEnabled(false);
         btnContinuar.setEnabled(false);
+
+        mp = MediaPlayer.create(this, R.raw.button);
+        mp2 = MediaPlayer.create(this, R.raw.soundb);
 
         generarOperacion();
 
@@ -114,8 +120,10 @@ public class Mult extends AppCompatActivity {
             if (respuestaUsuario == respuestaCorrecta) {
                 mostrarToast("¡Correcto!");
                 respuestasCorrectas++;
+                mp.start();
             } else {
                 mostrarToast("Incorrecto. La respuesta correcta es " + respuestaCorrecta);
+                mp2.start();
             }
 
             //Mientras el contador de intentos sea menor o igual a 5, se seguiran generando problemas

@@ -2,6 +2,8 @@ package com.example.matematica.unidad1;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,6 +19,7 @@ public class SeleccionDificultad extends AppCompatActivity {
     private ImageView opcionFacil, opcionDificil;
     private Button btnMenuPrincipal;
     private String modo;
+    MediaPlayer Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +31,14 @@ public class SeleccionDificultad extends AppCompatActivity {
         opcionFacil = findViewById(R.id.opcionPrincipiante);
         opcionDificil = findViewById(R.id.opcionAvanzado);
         btnMenuPrincipal = findViewById(R.id.btnMenu);
+        Btn = MediaPlayer.create(this, R.raw.popsound);
 
         //Listener para realizar accion al presionar el boton de menu
         btnMenuPrincipal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 //Metodo para realizar el cambio de activity
                 startActivity(new Intent(SeleccionDificultad.this, MainActivity.class));
                 fade();         //Llamada al metodo de transicion
@@ -43,6 +49,8 @@ public class SeleccionDificultad extends AppCompatActivity {
         opcionFacil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 //Asignacion de dificultad a variable de modo
                 modo = "Facil";
                 //Metodo para realizar el cambio de activity
@@ -53,6 +61,8 @@ public class SeleccionDificultad extends AppCompatActivity {
         opcionDificil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 //Asignacion de dificultad a variable de modo
                 modo = "Dificil";
                 //Metodo para realizar el cambio de activity

@@ -2,6 +2,7 @@ package com.example.matematica.unidad1;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +17,8 @@ public class LeccionesAdv extends AppCompatActivity {
     private ImageView leccionAdv1, leccionAdv2;
     private Button Atras;
 
+    MediaPlayer Btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +28,14 @@ public class LeccionesAdv extends AppCompatActivity {
         leccionAdv1 = findViewById(R.id.imageView);
         leccionAdv2 = findViewById(R.id.imageView2);
         Atras = findViewById(R.id.Atras);
+        Btn = MediaPlayer.create(this, R.raw.popsound);
 
         //Funcionamiento del boton de Atras, volviendo asi a la seleccion de dificultad
         Atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(LeccionesAdv.this, SeleccionDificultad.class));
                 fade();
             }
@@ -40,6 +46,8 @@ public class LeccionesAdv extends AppCompatActivity {
         leccionAdv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(LeccionesAdv.this, TeoriaAdiSusAdv.class));
                 fade();
             }
@@ -51,6 +59,8 @@ public class LeccionesAdv extends AppCompatActivity {
         leccionAdv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(LeccionesAdv.this, TeoriaMultiDivAdv.class));
                 fade();
             }

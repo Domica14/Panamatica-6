@@ -2,6 +2,7 @@ package com.example.matematica.juegos;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -63,11 +64,16 @@ public class JuegoAdivinanzas extends AppCompatActivity implements View.OnClickL
     //Se crea un set para almacenar el orden de las respuestas
     Set<Integer> respuestasColoca = new HashSet<>();
 
+    MediaPlayer mp, mp2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_adivinanzas);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
+
+        mp = MediaPlayer.create(this, R.raw.button);
+        mp2 = MediaPlayer.create(this, R.raw.soundb);
 
         //Se obtiene el valor de la proxima activity
         activity = getIntent().getExtras().getInt("proximaActivity");
@@ -109,13 +115,13 @@ public class JuegoAdivinanzas extends AppCompatActivity implements View.OnClickL
         int id = v.getId();
 
         if (id == R.id.btnRespuesta1) {
-            juego(String.valueOf(btnRespuesta1.getText()));
+            juego(String.valueOf(btnRespuesta1.getText()), 1);
         } else if (id == R.id.btnRespuesta2) {
-            juego(String.valueOf(btnRespuesta2.getText()));
+            juego(String.valueOf(btnRespuesta2.getText()), 2 );
         } else if (id == R.id.btnRespuesta3) {
-            juego(String.valueOf(btnRespuesta3.getText()));
+            juego(String.valueOf(btnRespuesta3.getText()), 3);
         } else if (id == R.id.btnRespuesta4) {
-            juego(String.valueOf(btnRespuesta4.getText()));
+            juego(String.valueOf(btnRespuesta4.getText()), 4);
         }
     }
 
@@ -161,7 +167,7 @@ public class JuegoAdivinanzas extends AppCompatActivity implements View.OnClickL
     }
 
     //Maneja la logica del juego (mostrar adivinanzas, evaluar)
-    public void juego(String respuesta){
+    public void juego(String respuesta, int boton){
 
         //Se desactivan los botones
         btnRespuesta1.setEnabled(false);
@@ -172,8 +178,44 @@ public class JuegoAdivinanzas extends AppCompatActivity implements View.OnClickL
         //Si se equivoca
         if (!respuesta.equalsIgnoreCase(adivinanzaEscogida)) {
             txtResultado.setText("Incorrecto, la respuesta era: "+adivinanzaEscogida);
+            switch (boton){
+                case 1:
+                    btnRespuesta1.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+                    mp2.start();
+                    break;
+                case 2:
+                    btnRespuesta2.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+                    mp2.start();
+                    break;
+                case 3:
+                    btnRespuesta3.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+                    mp2.start();
+                    break;
+                case 4:
+                    btnRespuesta4.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+                    mp2.start();
+                    break;
+            }
         } else {        //Si acierta
             txtResultado.setText("CORRECTO! La respuesta es: "+adivinanzaEscogida);
+            switch (boton){
+                case 1:
+                    btnRespuesta1.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+                    mp.start();
+                    break;
+                case 2:
+                    btnRespuesta2.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+                    mp.start();
+                    break;
+                case 3:
+                    btnRespuesta3.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+                    mp.start();
+                    break;
+                case 4:
+                    btnRespuesta4.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+                    mp.start();
+                    break;
+            }
         }
     }
 

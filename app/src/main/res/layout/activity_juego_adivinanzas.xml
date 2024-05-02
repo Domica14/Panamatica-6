@@ -48,41 +48,41 @@
 
     <Button
             android:text=""
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="64dp" android:id="@+id/btnRespuesta3"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.172" app:layout_constraintVertical_bias="0.668"
+            app:layout_constraintHorizontal_bias="0.139" app:layout_constraintVertical_bias="0.668"
             android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
             android:textAlignment="center" android:textSize="18sp" android:textColor="#FFFFFF"
             app:layout_constraintTop_toTopOf="parent"/>
     <Button
             android:text=""
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="64dp" android:id="@+id/btnRespuesta4"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.835" app:layout_constraintVertical_bias="0.668"
+            app:layout_constraintHorizontal_bias="0.876" app:layout_constraintVertical_bias="0.668"
             android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
             android:textAlignment="center" android:textSize="18sp" android:textColor="#FFFFFF"
             app:layout_constraintTop_toTopOf="parent"/>
     <Button
             android:text=""
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="64dp" android:id="@+id/btnRespuesta1"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.172" app:layout_constraintVertical_bias="0.548"
+            app:layout_constraintHorizontal_bias="0.139" app:layout_constraintVertical_bias="0.548"
             android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
             android:textAlignment="center" android:textSize="18sp" android:textColor="#FFFFFF"
             app:layout_constraintTop_toTopOf="parent"/>
     <Button
             android:text=""
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="64dp" android:id="@+id/btnRespuesta2"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.835" app:layout_constraintVertical_bias="0.548"
+            app:layout_constraintHorizontal_bias="0.876" app:layout_constraintVertical_bias="0.548"
             android:backgroundTint="#F68D2E" android:fontFamily="@font/inter_black" android:textStyle="italic"
             android:textAlignment="center" android:textSize="18sp" android:textColor="#FFFFFF"
             app:layout_constraintTop_toTopOf="parent"/>

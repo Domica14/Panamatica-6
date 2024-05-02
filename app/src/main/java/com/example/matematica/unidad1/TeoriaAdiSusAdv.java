@@ -2,6 +2,7 @@ package com.example.matematica.unidad1;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import com.example.matematica.R;
 public class TeoriaAdiSusAdv extends AppCompatActivity {
 
     private Button btnRegresar, btnSiguiente;
+    MediaPlayer Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +22,14 @@ public class TeoriaAdiSusAdv extends AppCompatActivity {
 
         btnRegresar = findViewById(R.id.btnRegresarAdiSus2);
         btnSiguiente = findViewById(R.id.btnSiguienteAdiSus2);
+        Btn = MediaPlayer.create(this, R.raw.popsound);
 
         //Al presionar el boton se regresa a la pantalla de seleccion de lecciones
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(TeoriaAdiSusAdv.this, LeccionesAdv.class));
                 fade();
                 finish();
@@ -35,6 +40,8 @@ public class TeoriaAdiSusAdv extends AppCompatActivity {
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(TeoriaAdiSusAdv.this, Suma.class));
                 fade();
                 finish();

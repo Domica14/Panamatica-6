@@ -2,6 +2,7 @@ package com.example.matematica.menu;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +21,8 @@ public class SeleccionUnidad extends AppCompatActivity {
     private Button btnAtras;
     //Provicional para acceder a los juegos
 
+    MediaPlayer Btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +32,15 @@ public class SeleccionUnidad extends AppCompatActivity {
         //Asociacion de variables con los elementos de la vista
         unidad1 = findViewById(R.id.unidad1);
         btnAtras = findViewById(R.id.btnRegresar);
+        Btn = MediaPlayer.create(this, R.raw.popsound);
 
 
         //Listeners para que se realize una accion al presionar la imagen
         unidad1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(SeleccionUnidad.this, SeleccionDificultad.class));
                 fade();
             }
@@ -43,6 +49,8 @@ public class SeleccionUnidad extends AppCompatActivity {
         btnAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(SeleccionUnidad.this, MainActivity.class));
                 fade();
             }

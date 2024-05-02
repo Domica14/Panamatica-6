@@ -2,6 +2,7 @@ package com.example.matematica.unidad1;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,8 @@ public class TeoriaMultiDiv extends AppCompatActivity {
 
     private Button btnRegresar, btnSiguiente;
 
+    MediaPlayer Btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +23,14 @@ public class TeoriaMultiDiv extends AppCompatActivity {
 
         btnRegresar = findViewById(R.id.btnRegresarMultiDiv);
         btnSiguiente = findViewById(R.id.btnSiguienteMultiDiv);
+        Btn = MediaPlayer.create(this, R.raw.popsound);
 
         //Al presionar el boton se regresa a la pantalla de seleccion de lecciones
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(TeoriaMultiDiv.this, Lecciones.class));
                 fade();
                 finish();
@@ -35,6 +41,8 @@ public class TeoriaMultiDiv extends AppCompatActivity {
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Btn.start();
                 startActivity(new Intent(TeoriaMultiDiv.this, MultEZ.class));
                 fade();
                 finish();

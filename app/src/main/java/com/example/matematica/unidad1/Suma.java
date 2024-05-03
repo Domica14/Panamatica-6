@@ -123,7 +123,7 @@ public class Suma extends AppCompatActivity {
 
             //Mientras los intentos sean menor o igual a 5, se seguiran creando operaciones.
             if (Count <= 5) {
-                txtResultado.setText("Intento: " + Count);
+                txtResultado.setText("Problema: " + Count);
                 generarOperacion();
                 //Una vez pase de 5, apareceran algunos botones con sus respectivas acciones
                 //Ademas de que podremos ver nuestro resultado.

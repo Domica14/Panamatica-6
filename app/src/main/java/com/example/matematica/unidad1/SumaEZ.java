@@ -176,7 +176,7 @@ public class SumaEZ extends AppCompatActivity {
                         btn.setEnabled(true);
                     }
 
-                    txtResultado.setText("Intento: " + Count);
+                    txtResultado.setText("Problema: " + Count);
 
                     generarOperacion();
 

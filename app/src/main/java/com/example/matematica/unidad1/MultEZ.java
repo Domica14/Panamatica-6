@@ -67,7 +67,7 @@ public class MultEZ extends AppCompatActivity {
         generarOperacion();
 
         //Contador de intentos.
-        txtResultado.setText("Intento: " + Count);
+        txtResultado.setText("Problema: " + Count);
 
         //Funcionamiento del boton reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {

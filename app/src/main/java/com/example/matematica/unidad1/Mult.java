@@ -130,7 +130,7 @@ public class Mult extends AppCompatActivity {
             //Cuando ya pase de 5, este mostrara los botones ocultos que tienen ciertos funcionamientos
             //Tambien se podrá ver los resultados.
             if (Count <= 5) {
-                txtResultado.setText("Intento: " + Count);
+                txtResultado.setText("Problema: " + Count);
                 generarOperacion();
             } else {
                 btnFinal.setEnabled(true);

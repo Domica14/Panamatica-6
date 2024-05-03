@@ -130,7 +130,7 @@ public class Div extends AppCompatActivity {
               Una vez se culminen los 5 intentos, apareceran ciertos botones y nuestro resultado final.*/
             if (Count <= 5) {
 
-                txtResultado.setText("Intento: " + Count);
+                txtResultado.setText("Problema: " + Count);
                 generarOperacion();
             } else {
                 btnFinal.setEnabled(true);

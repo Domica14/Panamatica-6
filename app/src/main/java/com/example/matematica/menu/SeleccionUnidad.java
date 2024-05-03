@@ -20,7 +20,6 @@ public class SeleccionUnidad extends AppCompatActivity {
     private ImageView unidad1;              //A futuro se pueden agregar las del resto de unidades
     private Button btnAtras;
     //Provicional para acceder a los juegos
-    private ImageView unidad2, unidad3;
 
     MediaPlayer Btn;
 

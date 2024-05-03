@@ -2,6 +2,7 @@ package com.example.matematica.juegos;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,11 +36,17 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
     //Guarda el valor de la proxima activity
     private int activity;
 
+    MediaPlayer Btn, mp, mp2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_x0);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
+
+        Btn = MediaPlayer.create(this, R.raw.popsound);
+        mp = MediaPlayer.create(this, R.raw.button);
+        mp2 = MediaPlayer.create(this, R.raw.soundb);
 
         //Se obtiene el valor de la proxima activity
         activity = getIntent().getExtras().getInt("proximaActivity");
@@ -129,39 +136,48 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
         if (id == R.id.cuadro1) {
             //Se reemplaza la imagen por la que contiene el O
             cuadro1.setImageResource(R.drawable.tresenrayao);
+            Btn.start();
             cuadro1.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(1);
         } else if (id == R.id.cuadro2) {
+            Btn.start();
             cuadro2.setImageResource(R.drawable.tresenrayao);
             cuadro2.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(2);
         } else if (id == R.id.cuadro3) {
+            Btn.start();
             cuadro3.setImageResource(R.drawable.tresenrayao);
             cuadro3.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(3);
             //Segunda fila
         } else if (id == R.id.cuadro4) {
+            Btn.start();
             cuadro4.setImageResource(R.drawable.tresenrayao);
             cuadro4.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(4);
         } else if (id == R.id.cuadro5) {
+            Btn.start();
             cuadro5.setImageResource(R.drawable.tresenrayao);
             cuadro5.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(5);
         } else if (id == R.id.cuadro6) {
+            Btn.start();
             cuadro6.setImageResource(R.drawable.tresenrayao);
             cuadro6.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(6);
             //Tercera fila
         } else if (id == R.id.cuadro7) {
+            Btn.start();
             cuadro7.setImageResource(R.drawable.tresenrayao);
             cuadro7.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(7);
         } else if (id == R.id.cuadro8) {
+            Btn.start();
             cuadro8.setImageResource(R.drawable.tresenrayao);
             cuadro8.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(8);
         } else if (id == R.id.cuadro9) {
+            Btn.start();
             cuadro9.setImageResource(R.drawable.tresenrayao);
             cuadro9.setEnabled(false);          //Se desactiva el boton
             usuarioOpciones.add(9);

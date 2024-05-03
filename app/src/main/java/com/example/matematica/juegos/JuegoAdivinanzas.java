@@ -59,12 +59,12 @@ public class JuegoAdivinanzas extends AppCompatActivity implements View.OnClickL
     private final String[] cantidadAdivinanzas = adivinanzas.keySet().toArray(new String[0]);
 
     //Se crea una variable que tomara la key de la adivinanza a mostrar
-    String adivinanzaEscogida;
+    private String adivinanzaEscogida;
 
     //Se crea un set para almacenar el orden de las respuestas
-    Set<Integer> respuestasColoca = new HashSet<>();
+    private Set<Integer> respuestasColoca = new HashSet<>();
 
-    MediaPlayer mp, mp2;
+    private MediaPlayer mp, mp2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

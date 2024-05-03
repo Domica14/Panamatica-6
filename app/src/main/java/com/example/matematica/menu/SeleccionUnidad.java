@@ -9,19 +9,14 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
-import com.example.matematica.juegos.JuegoAdivinanzas;
-import com.example.matematica.juegos.JuegoX0;
-import com.example.matematica.unidad1.Div;
-import com.example.matematica.unidad1.DivEZ;
-import com.example.matematica.unidad1.SeleccionDificultad;
 
 public class SeleccionUnidad extends AppCompatActivity {
     //Declaracion de variables para manejar los elementos de la vista
     private ImageView unidad1;              //A futuro se pueden agregar las del resto de unidades
-    private Button btnAtras;
+    private Button btnAtras, btnTienda;
     //Provicional para acceder a los juegos
 
-    MediaPlayer Btn;
+    private MediaPlayer Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +27,7 @@ public class SeleccionUnidad extends AppCompatActivity {
         //Asociacion de variables con los elementos de la vista
         unidad1 = findViewById(R.id.unidad1);
         btnAtras = findViewById(R.id.btnRegresar);
+        btnTienda = findViewById(R.id.btnTienda);
         Btn = MediaPlayer.create(this, R.raw.popsound);
 
 
@@ -52,6 +48,15 @@ public class SeleccionUnidad extends AppCompatActivity {
 
                 Btn.start();
                 startActivity(new Intent(SeleccionUnidad.this, MainActivity.class));
+                fade();
+            }
+        });
+
+        btnTienda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Btn.start();
+                startActivity(new Intent(SeleccionUnidad.this, Tienda.class));
                 fade();
             }
         });

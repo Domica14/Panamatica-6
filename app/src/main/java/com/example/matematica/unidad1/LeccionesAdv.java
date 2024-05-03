@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
-import com.example.matematica.menu.MainActivity;
-import com.example.matematica.menu.SeleccionUnidad;
+import com.example.matematica.menu.SeleccionDificultad;
 
 public class LeccionesAdv extends AppCompatActivity {
 

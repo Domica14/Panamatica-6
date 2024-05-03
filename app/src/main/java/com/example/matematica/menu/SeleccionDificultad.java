@@ -1,17 +1,16 @@
-package com.example.matematica.unidad1;
+package com.example.matematica.menu;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
-import com.example.matematica.menu.MainActivity;
-import com.example.matematica.menu.SeleccionUnidad;
+import com.example.matematica.unidad1.Lecciones;
+import com.example.matematica.unidad1.LeccionesAdv;
 
 public class SeleccionDificultad extends AppCompatActivity {
 

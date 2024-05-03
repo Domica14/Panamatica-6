@@ -3,6 +3,7 @@ package com.example.matematica.juegos;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -36,7 +37,7 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
     //Guarda el valor de la proxima activity
     private int activity;
 
-    MediaPlayer Btn, mp, mp2;
+    private MediaPlayer Btn, mp, mp2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,12 +123,21 @@ public class JuegoX0 extends AppCompatActivity implements View.OnClickListener {
                 turnoContrincante();
             }
         }
-        //Confirma que se hayan seleccionado un minimo de tres opciones para verificar el ganador
-            if (buscarGanador(usuarioOpciones)){
-                txtResultado.setText("Ganaste!");
-            } else if (buscarGanador(contrincanteOpciones)) {
-                txtResultado.setText("Perdiste :(");
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (buscarGanador(usuarioOpciones)){
+                    txtResultado.setText("Ganaste!");
+                    mp.start();
+                } else if (buscarGanador(contrincanteOpciones)) {
+                    txtResultado.setText("Perdiste :(");
+                    mp2.start();
+                }
             }
+        }, 1000);
+
     }
 
     //Metodo que maneja el funcionamiento del turno del usuario

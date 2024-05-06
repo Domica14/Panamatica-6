@@ -54,7 +54,7 @@ public class Suma extends AppCompatActivity {
         generarOperacion();
 
         //Contador de Intentos
-        txtResultado.setText("Intento: " + Count);
+        txtResultado.setText("Problema: " + Count);
 
         //Funcionamiento del boton Reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {

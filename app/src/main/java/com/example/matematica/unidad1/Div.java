@@ -53,7 +53,7 @@ public class Div extends AppCompatActivity {
         generarOperacion();
 
         //Texto el cual nos dará a conocer el intento en el que nos encontramos.
-        txtResultado.setText("Intento: " + Count);
+        txtResultado.setText("Problema: " + Count);
 
         /*Funcionamiento del Botón Reiniciar, el cual nos permitirá comenzar desde el inicio los problemas.
           Este solo aparecerá cuando se terminen los 5 intentos.*/

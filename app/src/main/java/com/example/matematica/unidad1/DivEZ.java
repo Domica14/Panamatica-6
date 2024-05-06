@@ -75,7 +75,7 @@ public class DivEZ extends AppCompatActivity {
         generarOperacion();
 
         //Texto que permite ver el intento en el que se encuentra el usuario.
-        txtResultado.setText("Intento: " + Count);
+        txtResultado.setText("Problema: " + Count);
 
         //Funcionamiento para el boton de reiniciar.
         btnFinal.setOnClickListener(new View.OnClickListener() {

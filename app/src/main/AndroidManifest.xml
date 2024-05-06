@@ -64,7 +64,10 @@
                 android:name=".unidad1.Lecciones"
                 android:exported="false"/>
         <activity
-                android:name=".unidad1.SeleccionDificultad"
+                android:name=".menu.SeleccionDificultad"
+                android:exported="false"/>
+        <activity
+                android:name=".menu.Tienda"
                 android:exported="false"/>
         <activity
                 android:name=".menu.MainActivity"

@@ -10,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
 
+
+
 public class SeleccionUnidad extends AppCompatActivity {
     //Declaracion de variables para manejar los elementos de la vista
     private ImageView unidad1;              //A futuro se pueden agregar las del resto de unidades
     private Button btnAtras, btnTienda;
-    //Provicional para acceder a los juegos
 
     private MediaPlayer Btn;
 
@@ -60,7 +61,10 @@ public class SeleccionUnidad extends AppCompatActivity {
                 fade();
             }
         });
+
+
     }
+
 
     /*Se sobrescribe el metodo de onBackPressed para que realize el retroceso a la activity anterior al presionar
       el boton de atras del celular
@@ -71,6 +75,8 @@ public class SeleccionUnidad extends AppCompatActivity {
         fade();
         finish();
     }
+
+
 
     //Metodo que se encarga de la transicion entre activities
     public void fade(){

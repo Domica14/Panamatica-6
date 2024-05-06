@@ -1,8 +1,10 @@
 package com.example.matematica.unidad1;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -39,12 +41,18 @@ public class SumaEZ extends AppCompatActivity {
     Set<Integer> respuestasAsignadas = new HashSet<>();
     int respuestasCorrectas = 0;
 
+    private SharedPreferences sharedPreferences; // SharedPreferences para almacenar los puntos
+    private SharedPreferences.Editor editor; // Editor de SharedPreferences
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suma_ez);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Bloquea la orientacion de pantalla
+
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         txtPregunta = findViewById(R.id.txtPregunta);
         txtResultado = findViewById(R.id.txtResultado);
@@ -68,7 +76,7 @@ public class SumaEZ extends AppCompatActivity {
         generarOperacion();
 
         //Contador de intentos
-        txtResultado.setText("Intento: " + Count);
+        txtResultado.setText("Problema: " + Count);
 
         //Funcionamiento del boton Reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {
@@ -195,6 +203,44 @@ public class SumaEZ extends AppCompatActivity {
 
         else {
 
+            if (respuestasCorrectas == 5) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 25;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 4) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 15;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 3) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 10;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 2) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 5;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 1) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 1;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 0;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            }
+
             btnFinal.setEnabled(true);
             btnFinal.setVisibility(View.VISIBLE);
             btnVolver.setEnabled(true);
@@ -208,22 +254,24 @@ public class SumaEZ extends AppCompatActivity {
             TextView txtResultadoFinal = findViewById(R.id.txtResultadoFinal);
             txtResultadoFinal.setVisibility(View.VISIBLE);
             txtResultadoFinal.setText("Resultado: " + respuestasCorrectas + "/5");
+
+
         }
     }
 
-    //Metodo para el uso de mensajes emergentes
+    //Método para el uso de mensajes emergentes
     private void mostrarToast(String mensaje) {
         Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
     }
 
-    //Metodo para el uso del boton back del mismo celular
+    //Método para el uso del boton back del mismo celular
     public void onBackPressed() {
         mostrarDialogoConfirmacion();
     }
 
-    //Metodo para el uso de animaciones en el flujo del activity
+    //Método para el uso de animaciones en el flujo del activity
     public void fade() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
@@ -237,7 +285,7 @@ public class SumaEZ extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //Metodo para el uso del AlertDialog
+    //Método para el uso del AlertDialog
     private void mostrarDialogoConfirmacion() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Volver a la selección de unidad y perder el progreso?").setTitle("Confirmación");
@@ -287,3 +335,4 @@ public class SumaEZ extends AppCompatActivity {
         }
     }
 }
+

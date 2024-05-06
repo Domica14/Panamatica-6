@@ -54,7 +54,7 @@ public class Resta extends AppCompatActivity {
         generarOperacion();
 
         //Contador de intentos.
-        txtResultado.setText("Intento: " + Count);
+        txtResultado.setText("Problema: " + Count);
 
         //Funcionamiento del boton Reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {

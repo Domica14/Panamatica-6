@@ -54,7 +54,7 @@ public class Mult extends AppCompatActivity {
         generarOperacion();
 
         //Muestra el intento en el que esta el usuario.
-        txtResultado.setText("Intento: " + Count);
+        txtResultado.setText("Problema: " + Count);
 
 
         //Funcionamiento para el boton de reiniciar.

@@ -1,8 +1,10 @@
 package com.example.matematica.unidad1;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -38,12 +40,18 @@ public class MultEZ extends AppCompatActivity {
     Set<Integer> respuestasAsignadas = new HashSet<>();
     int respuestasCorrectas = 0;
 
+    private SharedPreferences sharedPreferences; // SharedPreferences para almacenar los puntos
+    private SharedPreferences.Editor editor; // Editor de SharedPreferences
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mult_ez);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
+
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         txtPregunta = findViewById(R.id.txtPregunta);
         txtResultado = findViewById(R.id.txtResultado);
@@ -191,6 +199,45 @@ public class MultEZ extends AppCompatActivity {
             //Una ves pase de 5, apareceran los botones que tendrán cada uno una función.
             //Aquí podremos ver nuestro resultado de igual manera.
         } else {
+
+            if (respuestasCorrectas == 5) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 25;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 4) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 15;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 3) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 10;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 2) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 5;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else if (respuestasCorrectas == 1) {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 1;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            } else {
+                // Sumar puntos
+                int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                puntosActuales += 0;
+                editor.putInt("puntos", puntosActuales);
+                editor.apply();
+            }
+
             btnFinal.setEnabled(true);
             btnFinal.setVisibility(View.VISIBLE);
             btnVolver.setEnabled(true);

@@ -1,15 +1,17 @@
 package com.example.matematica.menu;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.matematica.R;
-
+import com.example.matematica.unidad1.DivEZ;
 
 
 public class SeleccionUnidad extends AppCompatActivity {
@@ -48,8 +50,8 @@ public class SeleccionUnidad extends AppCompatActivity {
             public void onClick(View v) {
 
                 Btn.start();
-                startActivity(new Intent(SeleccionUnidad.this, MainActivity.class));
-                fade();
+
+                mostrarDialogoConfirmacion();
             }
         });
 
@@ -71,9 +73,7 @@ public class SeleccionUnidad extends AppCompatActivity {
      */
     @Override
     public void onBackPressed(){
-        startActivity(new Intent(SeleccionUnidad.this, MainActivity.class));
-        fade();
-        finish();
+       mostrarDialogoConfirmacion();
     }
 
 
@@ -82,5 +82,23 @@ public class SeleccionUnidad extends AppCompatActivity {
     public void fade(){
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);         //Metodo para cambiar la transicion
         finish();       //Se finaliza la activity actual
+    }
+
+    private void mostrarDialogoConfirmacion() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Perderas todos tus puntos si vuelves a la pantalla principal. ¿Estas seguro?").setTitle("Confirmación");
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                startActivity(new Intent(SeleccionUnidad.this, MainActivity.class));
+                fade();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

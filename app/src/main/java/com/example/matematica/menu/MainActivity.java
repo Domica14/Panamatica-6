@@ -1,6 +1,7 @@
 package com.example.matematica.menu;
-
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,32 +12,33 @@ import com.example.matematica.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Declaracion de variables para manejar los elementos de la vista
+    // Declaración de variables para manejar los elementos de la vista
     private Button btnEmpezar;
-
     private MediaPlayer mediaPlayer, Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Bloquea la orientación de pantalla
 
-        //Asociacion de la variable declarada con el elemento de la vista
+        // Asociación de la variable declarada con el elemento de la vista
         btnEmpezar = findViewById(R.id.btnEmpezar);
 
         mediaPlayer = MediaPlayer.create(this, R.raw.backgroundsound);
         mediaPlayer.setLooping(true);
         Btn = MediaPlayer.create(this, R.raw.popsound);
 
+        // Reinicia SharedPreferences al inicio de la aplicación
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        reiniciarSharedPreferences(sharedPreferences);
 
-        //Listener para determinar la accion a realizar al presionar el boton
+        // Listener para determinar la acción a realizar al presionar el botón
         btnEmpezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Btn.start();
-                fade();           //Llamado al metodo de la transicion
+                fade(); // Llamado al método de la transición
             }
         });
     }
@@ -70,11 +72,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Metodo que se encarga de la transicion entre activities
-    public void fade(){
-        //Metodo para realizar el cambio de activity
+    // Método que se encarga de la transición entre activities
+    public void fade() {
+        // Método para realizar el cambio de activity
         startActivity(new Intent(MainActivity.this, SeleccionUnidad.class));
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);         //Metodo para cambiar la transicion
-        finish();       //Se finaliza la activity actual
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // Método para cambiar la transición
+        finish(); // Se finaliza la activity actual
+    }
+
+    private void reiniciarSharedPreferences(SharedPreferences sharedPreferences) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear(); // Borrar todos los datos
+        editor.apply();
     }
 }

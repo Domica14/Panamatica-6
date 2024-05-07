@@ -1,6 +1,8 @@
 package com.example.matematica.unidad1;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.view.Gravity;
@@ -30,11 +32,17 @@ public class Div extends AppCompatActivity {
 
     int respuestasCorrectas = 0, Count = 1;
 
+    private SharedPreferences sharedPreferences; // SharedPreferences para almacenar los puntos
+    private SharedPreferences.Editor editor; // Editor de SharedPreferences
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_div);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //Bloquea la orientacion de pantalla
+
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         txtPregunta = findViewById(R.id.txtPregunta);
         txtResultado = findViewById(R.id.txtResultado);
@@ -133,6 +141,45 @@ public class Div extends AppCompatActivity {
                 txtResultado.setText("Problema: " + Count);
                 generarOperacion();
             } else {
+
+                if (respuestasCorrectas == 5) {
+                    // Sumar puntos
+                    int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                    puntosActuales += 25;
+                    editor.putInt("puntos", puntosActuales);
+                    editor.apply();
+                } else if (respuestasCorrectas == 4) {
+                    // Sumar puntos
+                    int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                    puntosActuales += 15;
+                    editor.putInt("puntos", puntosActuales);
+                    editor.apply();
+                } else if (respuestasCorrectas == 3) {
+                    // Sumar puntos
+                    int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                    puntosActuales += 10;
+                    editor.putInt("puntos", puntosActuales);
+                    editor.apply();
+                } else if (respuestasCorrectas == 2) {
+                    // Sumar puntos
+                    int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                    puntosActuales += 5;
+                    editor.putInt("puntos", puntosActuales);
+                    editor.apply();
+                } else if (respuestasCorrectas == 1) {
+                    // Sumar puntos
+                    int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                    puntosActuales += 1;
+                    editor.putInt("puntos", puntosActuales);
+                    editor.apply();
+                } else {
+                    // Sumar puntos
+                    int puntosActuales = sharedPreferences.getInt("puntos", 0);
+                    puntosActuales += 0;
+                    editor.putInt("puntos", puntosActuales);
+                    editor.apply();
+                }
+
                 btnFinal.setEnabled(true);
                 btnFinal.setVisibility(View.VISIBLE);
                 btnVolver.setEnabled(true);

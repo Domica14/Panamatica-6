@@ -18,7 +18,7 @@ import com.example.matematica.unidad1.LeccionesAdv;
 public class SeleccionDificultad extends AppCompatActivity {
 
     //Declaracion de variables para el control de los elementos del activity
-    private ImageView opcionFacil, opcionDificil;
+    private ImageView opcionFacil, opcionDificil, tienda;
     private Button btnMenuPrincipal;
     private String modo;
     MediaPlayer Btn;
@@ -33,6 +33,7 @@ public class SeleccionDificultad extends AppCompatActivity {
         opcionFacil = findViewById(R.id.opcionPrincipiante);
         opcionDificil = findViewById(R.id.opcionAvanzado);
         btnMenuPrincipal = findViewById(R.id.btnMenu);
+        tienda = findViewById(R.id.opcionTienda);
         Btn = MediaPlayer.create(this, R.raw.popsound);
 
         //Listener para realizar accion al presionar el boton de menu
@@ -67,6 +68,14 @@ public class SeleccionDificultad extends AppCompatActivity {
                 modo = "Dificil";
                 //Metodo para realizar el cambio de activity
                 startActivity(new Intent(SeleccionDificultad.this, LeccionesAdv.class));
+                fade();
+            }
+        });
+        tienda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Btn.start();
+                startActivity(new Intent(SeleccionDificultad.this, Tienda.class));
                 fade();
             }
         });

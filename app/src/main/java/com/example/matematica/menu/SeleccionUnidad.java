@@ -17,7 +17,7 @@ import com.example.matematica.unidad1.DivEZ;
 public class SeleccionUnidad extends AppCompatActivity {
     //Declaracion de variables para manejar los elementos de la vista
     private ImageView unidad1;              //A futuro se pueden agregar las del resto de unidades
-    private Button btnAtras, btnTienda;
+    private Button btnAtras;
 
     private MediaPlayer Btn;
 
@@ -30,7 +30,6 @@ public class SeleccionUnidad extends AppCompatActivity {
         //Asociacion de variables con los elementos de la vista
         unidad1 = findViewById(R.id.unidad1);
         btnAtras = findViewById(R.id.btnRegresar);
-        btnTienda = findViewById(R.id.btnTienda);
         Btn = MediaPlayer.create(this, R.raw.popsound);
 
 
@@ -54,17 +53,6 @@ public class SeleccionUnidad extends AppCompatActivity {
                 mostrarDialogoConfirmacion();
             }
         });
-
-        btnTienda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Btn.start();
-                startActivity(new Intent(SeleccionUnidad.this, Tienda.class));
-                fade();
-            }
-        });
-
-
     }
 
 

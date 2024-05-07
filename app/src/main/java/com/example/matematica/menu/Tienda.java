@@ -67,7 +67,7 @@ public class Tienda extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Btn.start();
-                Intent intent = new Intent(Tienda.this, SeleccionUnidad.class);
+                Intent intent = new Intent(Tienda.this, SeleccionDificultad.class);
                 intent.putExtra("pistas", pistas);
                 startActivity(intent);
                 fade();
@@ -81,7 +81,7 @@ public class Tienda extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Tienda.this, SeleccionUnidad.class);
+        Intent intent = new Intent(Tienda.this, SeleccionDificultad.class);
         intent.putExtra("pistas", pistas);
         startActivity(intent);
         fade();

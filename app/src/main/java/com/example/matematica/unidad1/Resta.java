@@ -1,5 +1,6 @@
 package com.example.matematica.unidad1;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,9 +24,9 @@ import java.util.Random;
 
 public class Resta extends AppCompatActivity {
 
-    TextView txtPregunta, txtResultado, Respuesta;
+    TextView txtPregunta, txtResultado, Respuesta, ResPista;
 
-    Button btnFinal, btnVolver, btnContinuar;
+    Button btnFinal, btnVolver, btnContinuar, btnPista;
     Button btnVerificar;
     int respuestaCorrecta, Count = 1;
 
@@ -36,6 +37,7 @@ public class Resta extends AppCompatActivity {
     private SharedPreferences sharedPreferences; // SharedPreferences para almacenar los puntos
     private SharedPreferences.Editor editor; // Editor de SharedPreferences
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,8 @@ public class Resta extends AppCompatActivity {
         btnFinal = findViewById(R.id.btnFinal);
         btnVolver = findViewById(R.id.btnVolver);
         btnContinuar = findViewById(R.id.btnNext);
+        ResPista = findViewById(R.id.ResPista);
+        btnPista = findViewById(R.id.btnPista);
         btnFinal.setEnabled(false);
         btnVolver.setEnabled(false);
         btnContinuar.setEnabled(false);
@@ -59,10 +63,45 @@ public class Resta extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.button);
         mp2 = MediaPlayer.create(this, R.raw.soundb);
 
+        int pistas = sharedPreferences.getInt("pistas", 0);
+        btnPista.setText("Pistas: " + pistas);
+
+        if(pistas >= 1){
+
+            btnPista.setVisibility(View.VISIBLE);
+
+        }
+
         generarOperacion();
 
         //Contador de intentos.
         txtResultado.setText("Problema: " + Count);
+
+        btnPista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int pistas = sharedPreferences.getInt("pistas", 0);
+                if (pistas > 0) {
+                    // Reducir el número de pistas
+                    pistas--;
+                    editor.putInt("pistas", pistas);
+                    editor.apply();
+
+                    // Actualizar el texto del botón de pistas
+                    btnPista.setText("Pistas: " + pistas);
+
+                    // Lógica para mostrar una pista al usuario
+                    mostrarPista();
+
+                    // Ocultar el botón de pistas si ya no hay pistas disponibles
+                    if (pistas == 0) {
+                        btnPista.setVisibility(View.INVISIBLE);
+                    }
+                }
+
+            }
+        });
 
         //Funcionamiento del boton Reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +171,21 @@ public class Resta extends AppCompatActivity {
             //Mientras los intentos sean menor o igual a 5, se seguiran creando operaciones.
             if (Count <= 5) {
                 txtResultado.setText("Problema: " + Count);
+                int pistas = sharedPreferences.getInt("pistas", 0);
+
+                if(pistas >= 1){
+
+                    btnPista.setVisibility(View.VISIBLE);
+
+
+                } else {
+
+                    btnPista.setVisibility(View.INVISIBLE);
+
+                }
+
+                ResPista.setVisibility(View.INVISIBLE);
+
                 generarOperacion();
                 //Una vez pase de 5, apareceran algunos botones con sus respectivas acciones
                 //Ademas de que podremos ver nuestro resultado.
@@ -184,7 +238,9 @@ public class Resta extends AppCompatActivity {
                 txtPregunta.setVisibility(View.GONE);
                 txtResultado.setVisibility(View.GONE);
                 btnVerificar.setVisibility(View.GONE);
+                btnPista.setVisibility(View.GONE);
                 Respuesta.setVisibility(View.GONE);
+                ResPista.setVisibility(View.GONE);
 
                 TextView txtResultadoFinal = findViewById(R.id.txtResultadoFinal);
                 txtResultadoFinal.setVisibility(View.VISIBLE);
@@ -195,6 +251,18 @@ public class Resta extends AppCompatActivity {
             // Mostrar un mensaje indicando que el campo de respuesta está vacío
             mostrarToast("Por favor, ingresa tu respuesta antes de verificar.");
         }
+    }
+
+    private void mostrarPista() {
+        int rango = 10;
+        int respuestaMinima = respuestaCorrecta - rango + (int)(Math.random() * 10); // Agrega un valor aleatorio al mínimo
+        int respuestaMaxima = respuestaCorrecta + rango - (int)(Math.random() * 10); // Resta un valor aleatorio al máximo
+
+        // Muestra un mensaje con el rango de respuestas
+        String mensajePista = "La respuesta está en el rango de " + respuestaMinima + " a " + respuestaMaxima;
+        ResPista.setText(mensajePista);
+        ResPista.setVisibility(View.VISIBLE);
+        btnPista.setVisibility(View.INVISIBLE);
     }
 
     //Metodo para el uso de mensajes emergentes

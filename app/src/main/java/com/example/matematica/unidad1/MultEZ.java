@@ -32,7 +32,7 @@ public class MultEZ extends AppCompatActivity {
     TextView txtPregunta, txtResultado;
     Button[] btnOpciones;
 
-    Button btnFinal, btnVolver, btnContinuar;
+    Button btnFinal, btnVolver, btnContinuar, BtnPista;
 
     MediaPlayer mp, mp2;
 
@@ -65,6 +65,7 @@ public class MultEZ extends AppCompatActivity {
         btnFinal = findViewById(R.id.btnFinal);
         btnVolver = findViewById(R.id.btnVolver);
         btnContinuar = findViewById(R.id.btnNext);
+        BtnPista = findViewById(R.id.btnPista);
         btnFinal.setEnabled(false);
         btnVolver.setEnabled(false);
         btnContinuar.setEnabled(false);
@@ -72,10 +73,46 @@ public class MultEZ extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.button);
         mp2 = MediaPlayer.create(this, R.raw.soundb);
 
+        int pistas = sharedPreferences.getInt("pistas", 0);
+        BtnPista.setText("Pistas: " + pistas);
+
+        if(pistas >= 1){
+
+            BtnPista.setVisibility(View.VISIBLE);
+
+
+        }
+
         generarOperacion();
 
         //Contador de intentos.
         txtResultado.setText("Problema: " + Count);
+
+        //Funcionamiento del botón de Pistas
+        BtnPista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Verificar si hay pistas disponibles
+                int pistas = sharedPreferences.getInt("pistas", 0);
+                if (pistas > 0) {
+                    // Reducir el número de pistas
+                    pistas--;
+                    editor.putInt("pistas", pistas);
+                    editor.apply();
+
+                    // Actualizar el texto del botón de pistas
+                    BtnPista.setText("Pistas: " + pistas);
+
+                    // Eliminar una de las opciones incorrectas
+                    eliminarOpcionIncorrecta();
+
+                    // Ocultar el botón de pistas si ya no hay pistas disponibles
+                    if (pistas == 0) {
+                        BtnPista.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+        });
 
         //Funcionamiento del boton reiniciar
         btnFinal.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +177,9 @@ public class MultEZ extends AppCompatActivity {
                 } while (respuestasAsignadas.contains(respuestaIncorrecta)); // Verificar si la respuesta ya está en el conjunto
                 btnOpciones[i].setText(String.valueOf(respuestaIncorrecta));
                 respuestasAsignadas.add(respuestaIncorrecta); // Agregar la respuesta incorrecta al conjunto
+                for (Button btn : btnOpciones) {
+                    btn.setVisibility(View.VISIBLE); // Asegura que todos los botones estén visibles al principio de cada operación
+                }
             }
         }
     }
@@ -185,6 +225,19 @@ public class MultEZ extends AppCompatActivity {
                     }
 
                     txtResultado.setText("Problema: " + Count);
+
+                    int pistas = sharedPreferences.getInt("pistas", 0);
+
+                    if(pistas >= 1){
+
+                        BtnPista.setVisibility(View.VISIBLE);
+
+
+                    } else {
+
+                        BtnPista.setVisibility(View.INVISIBLE);
+
+                    }
 
                     generarOperacion();
 
@@ -246,12 +299,25 @@ public class MultEZ extends AppCompatActivity {
             btnContinuar.setVisibility(View.VISIBLE);
             txtPregunta.setVisibility(View.GONE);
             txtResultado.setVisibility(View.GONE);
+            BtnPista.setVisibility(View.GONE);
             findViewById(R.id.llBotonesContainer).setVisibility(View.GONE);
 
             TextView txtResultadoFinal = findViewById(R.id.txtResultadoFinal);
             txtResultadoFinal.setVisibility(View.VISIBLE);
             txtResultadoFinal.setText("Resultado: " + respuestasCorrectas + "/5");
         }
+    }
+
+    private void eliminarOpcionIncorrecta() {
+        Random random = new Random();
+        int opcionAEliminar;
+        do {
+            opcionAEliminar = random.nextInt(4);
+        } while (btnOpciones[opcionAEliminar].getText().toString().equals(String.valueOf(respuestaCorrecta)));
+
+        // Eliminar la opción incorrecta
+        btnOpciones[opcionAEliminar].setVisibility(View.INVISIBLE);
+        BtnPista.setVisibility(View.INVISIBLE);
     }
 
     //Método para el uso de los mensajes emergentes.

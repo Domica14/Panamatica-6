@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Ingresa tu respuesta"
                 android:textAlignment="center"
-                android:inputType="number"
+                android:inputType="numberDecimal|numberSigned"
                 android:layout_marginBottom="20dp"/>
         <Button
                 android:id="@+id/btnVerificar"
@@ -105,6 +105,27 @@
             android:textSize="24sp"
             android:textColor="#000000"
             android:visibility="invisible" android:layout_centerInParent="true"/>
+    <Button
+            android:id="@+id/btnPista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Pista"
+            android:layout_marginBottom="177dp"
+            android:visibility="invisible"
+            android:textStyle="bold|italic" android:backgroundTint="#F68D2E"
+            android:textColor="#FFFFFF" android:fontFamily="@font/inter_black"/>
+    <TextView
+            android:id="@+id/ResPista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="177dp"
+            android:visibility="invisible"
+            android:textStyle="bold|italic"
+            android:textColor="#000000" android:fontFamily="@font/inter_black"/>
 
 
 

@@ -1,5 +1,4 @@
 package com.example.matematica.menu;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,11 +16,11 @@ import com.example.matematica.R;
 
 public class Tienda extends AppCompatActivity {
 
-    private SharedPreferences sharedPreferences; // SharedPreferences para almacenar los puntos
+    private SharedPreferences sharedPreferences; // SharedPreferences para almacenar los puntos y pistas
     private SharedPreferences.Editor editor; // Editor de SharedPreferences
     private ImageView btnRecompensa1;
     private Button btnRegresar;
-    private TextView txtPuntos;
+    private TextView txtPuntos, txtPistas;
     private int pistas; // Cantidad de pistas con las que cuenta el jugador
     private MediaPlayer Btn;
 
@@ -38,12 +37,15 @@ public class Tienda extends AppCompatActivity {
         btnRecompensa1 = findViewById(R.id.recompensa1);
         btnRegresar = findViewById(R.id.btnRegresarTienda);
         txtPuntos = findViewById(R.id.txtPuntos);
+        txtPistas = findViewById(R.id.Pistas);
 
         Btn = MediaPlayer.create(this, R.raw.popsound);
 
-        // Obtener los puntos guardados de SharedPreferences y mostrarlos
-        int puntos = sharedPreferences.getInt("puntos", 0); //Para llevar el control de puntos.
+        // Obtener los puntos y pistas guardados de SharedPreferences y mostrarlos
+        int puntos = sharedPreferences.getInt("puntos", 0); // Para llevar el control de puntos.
+        pistas = sharedPreferences.getInt("pistas", 0); // Recuperar el número de pistas
         txtPuntos.setText("Puntos\n" + puntos);
+        txtPistas.setText("Pistas\n" + pistas);
 
         btnRecompensa1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,10 +55,12 @@ public class Tienda extends AppCompatActivity {
                 if (puntos >= 25) {
                     puntos -= 25;
                     pistas += 1;
-                    // Guardar los puntos actualizados en SharedPreferences
+                    // Guardar los puntos y pistas actualizados en SharedPreferences
                     editor.putInt("puntos", puntos);
+                    editor.putInt("pistas", pistas);
                     editor.apply();
                     txtPuntos.setText("Puntos\n" + puntos);
+                    txtPistas.setText("Pistas\n" + pistas);
                 } else {
                     mostrarToast("No tienes los puntos necesarios...");
                 }
@@ -68,7 +72,6 @@ public class Tienda extends AppCompatActivity {
             public void onClick(View v) {
                 Btn.start();
                 Intent intent = new Intent(Tienda.this, SeleccionDificultad.class);
-                intent.putExtra("pistas", pistas);
                 startActivity(intent);
                 fade();
                 finish();
@@ -76,9 +79,8 @@ public class Tienda extends AppCompatActivity {
         });
     }
 
-    /*Se sobrescribe el metodo de onBackPressed para que realize el retroceso a la activity anterior al presionar
-      el boton de atras del celular
-     */
+    /* Se sobrescribe el método onBackPressed para que realize el retroceso a la activity anterior al presionar
+      el botón de atrás del celular */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(Tienda.this, SeleccionDificultad.class);
@@ -88,17 +90,16 @@ public class Tienda extends AppCompatActivity {
         finish();
     }
 
-    //Método para el uso de los mensajes emergentes.
+    // Método para el uso de los mensajes emergentes.
     private void mostrarToast(String mensaje) {
         Toast toast = Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
     }
 
-    //Metodo que se encarga de la transicion entre activities
+    // Método que se encarga de la transición entre activities
     public void fade() {
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // Metodo para cambiar la transicion
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // Método para cambiar la transición
         finish(); // Se finaliza la activity actual
     }
-
 }
